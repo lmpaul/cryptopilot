@@ -5,9 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-require "uri"
-require 'json'
-require 'open-uri'
+
+u = User.new(email: "admin@cryptopilot.com", username: "admin", password: "azerty")
+u.save
+
+u = User.new(email: "paul@cryptopilot.com", username: "Paul", password: "azerty")
+u.save
+
+d = Dashboard.new(name: "Dashboard de test", user_id: 1)
+d.save
 
 limit = 500
 res_api = URI.open("https://pro-api.coinmarketcap.com/v1/cryptocurrency/map",
@@ -17,3 +23,17 @@ json["data"].each do |d|
   Asset.create(coin_mcap_id: d["id"], rank: d["rank"], name: d["name"], symbol: d["symbol"]) if d["rank"] < limit
 end
 p "created #{limit} assets"
+
+t = Transaction.new(direction: "buy", asset_name: "litecoin", quantity: "1", price: "100", date: "2021-11-20", dashboard_id: 1, asset_id: 2)
+t.save
+t = Transaction.new(direction: "buy", asset_name: "bitcoin", quantity: "4", price: "500", date: "2021-11-10", dashboard_id: 1, asset_id: 1)
+t.save
+t = Transaction.new(direction: "sell", asset_name: "bitcoin", quantity: "1", price: "2500", date: "2021-11-22", dashboard_id: 1, asset_id: 1)
+t.save
+t = Transaction.new(direction: "sell", asset_name: "bitcoin", quantity: "1", price: "3000", date: "2021-11-23", dashboard_id: 1, asset_id: 1)
+t.save
+puts "✅ Databse seeded!"
+
+
+
+
