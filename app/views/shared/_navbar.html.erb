@@ -7,6 +7,27 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+    <% if user_signed_in? %>
+    <div class="box">
+      <%= link_to "Dashboard", dashboards_path, class: "button" %>
+      <%= link_to "Journal", dashboards_path, class: "button" %>
+      <%= link_to "Ressources", dashboards_path, class: "button" %>
+      </div >
+      <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class:'mx-4 btn btn-secondary' %>
+            <li class="nav">
+            <p> <%= current_user.username %></p>
+            </li>
+      <%# <li class="nav-item dropdown"> %>
+      <%# <% if current_user.avatar.attached? %>
+        <%# <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <%# <% else %>
+        <%# <%= image_tag 'user_blank.png', class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
+      <%# <% end %>
+        </div>
+      </li>
+        <%else %>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
@@ -16,6 +37,7 @@
       <li class="nav-item">
         <%= link_to "Log In", new_user_session_path, class: "mx-2 btn btn-secondary" %>
       </li>
+      <% end %>
     </ul>
   </div>
 </div>
