@@ -1,2 +1,23 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/mussadrame/image/upload/v1637664457/pexels-alesia-kozik-6778581_wgtlnj.jpg);">
+  <div class="container">
+    <h1>Welcome to  <strong>Crypto pilot</strong></h1>
+    <p>Track your investments.</p>
+    <%= link_to "Sign up", new_user_registration_path, class: "btn btn-flat" %>
+  </div>
+</div>
+<div class="container">
+  <h2 class="py-4">All you need to invest in crypto currencies</h2>
+  <div class="home-card-product">
+    <img src="https://res.cloudinary.com/mussadrame/image/upload/v1637665857/pexels-alesia-kozik-6777575_smiqrc.jpg" />
+    <div class="home-card-product-infos">
+      <p>It is a long established fact that a reader will be distracted by the readable <br>
+      content of a page when looking at its layout. The point of using Lorem Ipsum is that <br>
+      it has a more-or-less normal distribution of letters, as opposed to using 'Content here, <br>
+      content here', making it look like readable English. Many desktop publishing packages and <br>
+      web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem <br>
+      ipsum' will uncover many web sites still in their infancy. Various versions have evolved <br>
+      over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+      </p>
+    </div>
+  </div>
+</div>
