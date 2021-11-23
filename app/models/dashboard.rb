@@ -62,13 +62,9 @@ class Dashboard < ApplicationRecord
     @assets_id_list.each do |asset_id|
       assets[asset_id.to_s] = {
         name: Asset.find(asset_id).name,
-        # Compute quantity for each
         quantity: asset_qty(asset_id),
-        # Compute total spent for each
         total_spent: asset_total_spent(asset_id),
-        # Compute number of transactions
         number_of_transaction: Transaction.where("asset_id = #{asset_id}").length,
-        # Compute average cost
         average_cost: (asset_total_spent(asset_id) / tokens_bought(asset_id))
       }
     end
@@ -90,23 +86,12 @@ class Dashboard < ApplicationRecord
   end
 
   def define_assets
-    if self.asset.nil?
-      # Create the hash
-      @assets = create_hash
-      @assets_keys = @assets.keys
-    else
-      if check_transactions_equality
-        @assets = self.asset
-        @assets_keys = @assets.keys
-      else
-        # Create the hash
-        self.asset = create_hash
-        @assets = self.asset
-        @assets_keys = @assets.keys
-      end
-    end
+    @assets = create_hash
+    @assets = self.asset if !self.asset.nil? && check_transactions_equality
+    @assets_keys = @assets.keys
     assets_market_price
     assets_pnl
     p @assets
+    return @assets
   end
 end
