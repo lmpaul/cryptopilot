@@ -7,6 +7,14 @@
   flex-grow: 0;
 }
 
-.nav-item {
+.button {
   color: white;
+  text-decoration: none;
+}
+
+.box {
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
