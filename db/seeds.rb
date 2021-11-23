@@ -5,9 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-require "uri"
-require 'json'
-require 'open-uri'
 
 limit = 500
 res_api = URI.open("https://pro-api.coinmarketcap.com/v1/cryptocurrency/map",
