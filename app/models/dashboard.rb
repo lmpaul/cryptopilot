@@ -94,4 +94,22 @@ class Dashboard < ApplicationRecord
     p @assets
     return @assets
   end
+
+  def total_value(assets)
+    total_value = 0
+    assets.keys.each do |key|
+      value = assets[key][:quantity] * assets[key][:market_price]
+      total_value += value
+    end
+    return total_value
+  end
+
+  def total_pnl(assets)
+    total_pnl = 0
+    assets.keys.each do |key|
+      pnl = assets[key][:pnl]
+      total_pnl += pnl
+    end
+    return total_pnl
+  end
 end
