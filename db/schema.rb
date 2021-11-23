@@ -10,11 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2021_11_22_165954) do
+=======
+ActiveRecord::Schema.define(version: 2021_11_23_110421) do
+>>>>>>> 312fcb94be6ea141d78e6b161da88840ba7e0c64
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+<<<<<<< HEAD
+=======
+  create_table "assets", force: :cascade do |t|
+    t.integer "coin_mcap_id"
+    t.integer "rank"
+    t.string "name"
+    t.string "symbol"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+>>>>>>> 312fcb94be6ea141d78e6b161da88840ba7e0c64
   create_table "dashboards", force: :cascade do |t|
     t.string "name"
     t.bigint "user_id", null: false
