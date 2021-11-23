@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2021_11_23_110421) do
 
   # These are extensions that must be enabled in order to support this database
@@ -41,7 +40,6 @@ ActiveRecord::Schema.define(version: 2021_11_23_110421) do
     t.date "date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-
     t.bigint "dashboard_id", null: false
     t.index ["dashboard_id"], name: "index_transactions_on_dashboard_id"
   end
