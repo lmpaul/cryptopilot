@@ -45,3 +45,16 @@
     background-color: #888888 !important;
     border-color: #888888 !important;
 }
+.avatar{
+  width: 40px;
+}
+.user-name{
+ align-items: center;
+ display: flex;
+
+ p{
+   margin-bottom: 0;
+   margin-right: 10px;
+   color: white;
+ }
+}
