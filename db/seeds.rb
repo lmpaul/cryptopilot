@@ -25,7 +25,7 @@ json = JSON.parse(gecko_api.read)
 json.each do |d|
   Asset.create(id_name: d["id"], rank: d["market_cap_rank"], name: d["name"], symbol: d["symbol"], image: d["image"])
 end
-p "💵 Created #{limit} assets"
+puts "💵 Created #{limit} assets"
 
 t = Transaction.new(direction: "buy", asset_name: "name", quantity: "1", price: "100", date: "2021-11-20", dashboard_id: 1, asset_id: 2)
 t.save

@@ -25,7 +25,7 @@ gem 'redis', '~> 4.0'
 gem 'uri'
 gem 'json'
 gem 'open-uri'
-
+gem 'nokogiri'
 gem 'cloudinary', '~> 1.16.0'
 
 # Use Active Storage variant
