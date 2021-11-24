@@ -5,7 +5,7 @@ class DashboardsController < ApplicationController
 
   def show
     @dashboard = Dashboard.find(params[:id])
-    @dashboard.asset = @dashboard.define_assets
+    @dashboard.asset = @dashboard.define_assets(Date.today)
     @dashboard.save
     @assets = @dashboard.asset
     @total_value = @dashboard.total_value(@assets)

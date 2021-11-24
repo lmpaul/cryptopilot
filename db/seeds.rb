@@ -27,9 +27,9 @@ json.each do |d|
 end
 puts "💵 Created #{limit} assets"
 
-t = Transaction.new(direction: "buy", asset_name: "name", quantity: "1", price: "100", date: "2021-11-20", dashboard_id: 1, asset_id: 2)
+t = Transaction.new(direction: "buy", asset_name: "name", quantity: "1", price: "100", date: "2021-11-10", dashboard_id: 1, asset_id: 2)
 t.save
-t = Transaction.new(direction: "buy", asset_name: "name", quantity: "4", price: "500", date: "2021-11-10", dashboard_id: 1, asset_id: 1)
+t = Transaction.new(direction: "buy", asset_name: "name", quantity: "4", price: "500", date: "2021-11-20", dashboard_id: 1, asset_id: 1)
 t.save
 t = Transaction.new(direction: "sell", asset_name: "name", quantity: "1", price: "2500", date: "2021-11-22", dashboard_id: 1, asset_id: 1)
 t.save
