@@ -112,4 +112,14 @@ class Dashboard < ApplicationRecord
     end
     return total_pnl
   end
+
+  def values
+    values = [
+      [Date.new(2021,11,01).to_time.to_i, self.id.to_i * 1000 ],
+      [Date.new(2021,11,05).to_time.to_i, self.id.to_i * 2000 ],
+      [Date.new(2021,11,10).to_time.to_i, self.id.to_i * 3000 ],
+      [Date.new(2021,11,15).to_time.to_i, self.id.to_i * 1500 ],
+    ]
+    return values
+  end
 end
