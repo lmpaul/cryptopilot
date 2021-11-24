@@ -12,7 +12,9 @@ u.save
 u = User.new(email: "paul@cryptopilot.com", username: "Paul", password: "azerty")
 u.save
 
-d = Dashboard.new(name: "Dashboard de test", user_id: 1)
+d = Dashboard.new(name: "Premier dashboard", user_id: 2)
+d.save
+d = Dashboard.new(name: "Deuxième dashboard", user_id: 2)
 d.save
 
 vs_currency = "USD"
@@ -23,14 +25,23 @@ json = JSON.parse(gecko_api.read)
 json.each do |d|
   Asset.create(id_name: d["id"], rank: d["market_cap_rank"], name: d["name"], symbol: d["symbol"], image: d["image"])
 end
-p "created #{limit} assets"
+p "💵 Created #{limit} assets"
 
-t = Transaction.new(direction: "buy", asset_name: "litecoin", quantity: "1", price: "100", date: "2021-11-20", dashboard_id: 1, asset_id: 2)
+t = Transaction.new(direction: "buy", asset_name: "name", quantity: "1", price: "100", date: "2021-11-20", dashboard_id: 1, asset_id: 2)
 t.save
-t = Transaction.new(direction: "buy", asset_name: "bitcoin", quantity: "4", price: "500", date: "2021-11-10", dashboard_id: 1, asset_id: 1)
+t = Transaction.new(direction: "buy", asset_name: "name", quantity: "4", price: "500", date: "2021-11-10", dashboard_id: 1, asset_id: 1)
 t.save
-t = Transaction.new(direction: "sell", asset_name: "bitcoin", quantity: "1", price: "2500", date: "2021-11-22", dashboard_id: 1, asset_id: 1)
+t = Transaction.new(direction: "sell", asset_name: "name", quantity: "1", price: "2500", date: "2021-11-22", dashboard_id: 1, asset_id: 1)
 t.save
-t = Transaction.new(direction: "sell", asset_name: "bitcoin", quantity: "1", price: "3000", date: "2021-11-23", dashboard_id: 1, asset_id: 1)
+t = Transaction.new(direction: "sell", asset_name: "name", quantity: "1", price: "3000", date: "2021-11-23", dashboard_id: 1, asset_id: 1)
 t.save
+t = Transaction.new(direction: "buy", asset_name: "name", quantity: "2", price: "200", date: "2021-11-20", dashboard_id: 2, asset_id: 3)
+t.save
+t = Transaction.new(direction: "buy", asset_name: "name", quantity: "4", price: "300", date: "2021-11-10", dashboard_id: 2, asset_id: 4)
+t.save
+t = Transaction.new(direction: "sell", asset_name: "name", quantity: "2", price: "500", date: "2024-11-22", dashboard_id: 2, asset_id: 4)
+t.save
+t = Transaction.new(direction: "sell", asset_name: "name", quantity: "1", price: "400", date: "2021-11-23", dashboard_id: 2, asset_id: 4)
+t.save
+
 puts "✅ Databse seeded!"

@@ -1,0 +1,15 @@
+<div class="container">
+  <h1 class="py-4"><%= @dashboard.name %> : <%= @total_value %>$</h1>
+  <p>Votre PnL est de : <%= @total_pnl %>$ </p>
+  <p>Vous avez <%= @assets.keys.length %> crypto monnaies :</p>
+  <% @assets.keys.each do |key| %>
+    <div class="card p-4 my-4">
+      <h2><%= @assets[key][:name] %> - PnL <%= @assets[key][:pnl] %>$ </h2>
+      <p>Nombre de coins: <%= @assets[key][:quantity] %> </p>
+      <p>Valeur par coin: <%= @assets[key][:market_price] %>$ </p>
+      <p>Coût de revient par coin: <%= @assets[key][:average_cost] %>$ </p>
+      <% asset_value = @assets[key][:quantity] *  @assets[key][:market_price] %>
+      <p>Pourcentage du portefeuille: <%= (asset_value / @total_value * 100).floor %>% </p>
+    </div>
+  <% end %>
+</div>
