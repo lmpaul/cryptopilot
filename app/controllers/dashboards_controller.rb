@@ -26,6 +26,22 @@ class DashboardsController < ApplicationController
     end
   end
 
+  def edit
+    @dashboard = Dashboard.find(params[:id])
+  end
+
+  def destroy
+    @dashboard = Dashboard.find(params[:id])
+    @dashboard.delete
+    redirect_to dashboards_path
+  end
+
+  def update
+    @dashboard = Dashboard.find(params[:id])
+    @dashboard.update(name: dashboard_params[:name])
+    redirect_to dashboards_path
+  end
+
   private
 
   def dashboard_params
