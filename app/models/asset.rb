@@ -1,6 +1,7 @@
 class Asset < ApplicationRecord
-  validates :coin_mcap_id, presence: true
+  validates :id_name, presence: true
   validates :rank, presence: true
   validates :name, presence: true
   validates :symbol, presence: true
+  validates :image, presence: true
 end

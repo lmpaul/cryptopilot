@@ -1,18 +1,17 @@
 class TransactionsController < ApplicationController
   def new
-    @dashboard = Dashboard.find(params[:dashboard_id])
     @transaction = Transaction.new
+    @dashboard = Dashboard.find(params[:dashboard_id])
   end
 
   def create
-    @dashboard = Dashboard.find(transaction_params[:dashboard])
+    # @dashboard = Dashboard.find(transaction_params[:dashboard_id].to_i)
     @transaction = Transaction.new(direction: transaction_params[:direction],
-                         dashboard_id: @dashboard.id,
-                         user_id: current_user.id,
+                         dashboard_id: transaction_params[:dashboard_id].to_i,
                          asset_id: transaction_params[:asset_id],
                          price: transaction_params[:price],
                          quantity: transaction_params[:quantity],
-                         asset_name: Asset.find(transaction_params[:asset_id]),
+                        #  asset_name: Asset.find(transaction_params[:asset_id].to_i),
                          date: Date.today)
     if @transaction.save
       redirect_to dashboard_path(@dashboard)
@@ -24,6 +23,6 @@ class TransactionsController < ApplicationController
   private
 
   def transaction_params
-    params.require(:transaction).permit(:direction, :asset_id, :dashboard, :price)
+    params.require(:transaction).permit(:direction, :asset_id, :dashboard, :price, :quantity, :date)
   end
 end
