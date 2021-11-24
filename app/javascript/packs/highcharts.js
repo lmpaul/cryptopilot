@@ -17,10 +17,10 @@ import Highcharts from 'highcharts/highstock';
             },
             subtitle: {
                 text: document.ontouchstart === undefined ?
-                    'Provided by Cryptopilot' : 'Pinch the chart to zoom in'
+                    'All assets' : 'Pinch the chart to zoom in'
             },
             xAxis: {
-                type: 'datetime'
+                type: 'category'
             },
             yAxis: {
                 title: {
