@@ -1,0 +1,13 @@
+<div class="container py-5" style="min-height: 83vh">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+        <h1>Add a pilot</h1>
+        <%= simple_form_for @dashboard do |f| %>
+          <%= f.input :name %>
+          <%= f.submit 'Add a pilot' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

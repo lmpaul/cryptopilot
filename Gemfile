@@ -26,10 +26,7 @@ gem 'uri'
 gem 'json'
 gem 'open-uri'
 
-gem 'pg_search', '~> 2.3.0'
-
-gem "algoliasearch-rails"
-
+gem 'nokogiri'
 gem 'cloudinary', '~> 1.16.0'
 
 # Use Active Storage variant

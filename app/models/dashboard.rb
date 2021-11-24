@@ -2,6 +2,7 @@ class Dashboard < ApplicationRecord
   serialize :asset
   belongs_to :user
   has_many :transactions
+  validates :name, presence: true
 
   def check_transactions_equality
     registered_transactions = self.transactions
@@ -55,8 +56,8 @@ class Dashboard < ApplicationRecord
     return token_bought
   end
 
-  def create_hash
-    @transactions = Transaction.where("dashboard_id = #{self.id}")
+  def create_hash(date)
+    @transactions = Transaction.where("dashboard_id = #{self.id} AND date <= ?", date)
     assets_id_list
     assets = {}
     @assets_id_list.each do |asset_id|
@@ -85,8 +86,8 @@ class Dashboard < ApplicationRecord
     end
   end
 
-  def define_assets
-    @assets = create_hash
+  def define_assets(date)
+    @assets = create_hash(date)
     @assets = self.asset if !self.asset.nil? && check_transactions_equality
     @assets_keys = @assets.keys
     assets_market_price
@@ -111,5 +112,22 @@ class Dashboard < ApplicationRecord
       total_pnl += pnl
     end
     return total_pnl
+  end
+
+  def values
+    # la première date est celle de la premiere
+    first_date = self.transactions.first.date
+    number_of_days = (Date.today - first_date).to_i
+    dates = []
+    i = 0
+    number_of_days.times do
+      dates << (first_date + i)
+      i += 1
+    end
+    # la dernière date est celle d'aujourd'hui
+    values = dates.map do |date|
+      [date, self.total_value(define_assets(date))]
+    end
+    return values
   end
 end
