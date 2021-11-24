@@ -1,10 +1,17 @@
-<div class="container">
-  <%= simple_form_for [@transaction, @dashboard] do |f| %>
-    <%# <%= f. : %> <!-- Autocomplete assets -->
-    <%= f.input :price, as: :float %>
-    <%= f.input :quantity, as: :float %>
-    <%= f.date_field :date, as: :date%>
-    <%= f.hidden_field :dashboard, value: @dashboard.id %>
-    <%= f.button :submit %>
-  <% end %>
+<div class="container" class="2">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-4 col-xs-6">
+      <div class="form-login my-4">
+        <%= simple_form_for [@dashboard, @transaction] do |f| %>
+          <%= f.select :asset_id, Asset.all.map { |r| [r.name, r.id, data: { image: r.image }]}, include_blank: true, input_html: { autocomplete: 'on'} %>
+          <%= f.select :direction, ["Buy", "Sell", "Add"] %>
+          <%= f.input :price, as: :float %>
+          <%= f.input :quantity, as: :float %>
+          <%= f.datetime_field :date, as: :date%>
+          <%= f.hidden_field :dashboard, value: @dashboard.id %>
+          <%= f.button :submit %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

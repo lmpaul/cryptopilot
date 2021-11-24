@@ -1,18 +1,22 @@
 class TransactionsController < ApplicationController
+  # def index
+  #   @transactions = Transaction.all
+  # end
+
   def new
     @transaction = Transaction.new
     @dashboard = Dashboard.find(params[:dashboard_id])
   end
 
   def create
-    # @dashboard = Dashboard.find(transaction_params[:dashboard_id].to_i)
+    @dashboard = Dashboard.find(params[:dashboard_id])
     @transaction = Transaction.new(direction: transaction_params[:direction],
-                         dashboard_id: transaction_params[:dashboard_id].to_i,
-                         asset_id: transaction_params[:asset_id],
-                         price: transaction_params[:price],
-                         quantity: transaction_params[:quantity],
-                        #  asset_name: Asset.find(transaction_params[:asset_id].to_i),
-                         date: Date.today)
+                        dashboard_id: transaction_params[:dashboard],
+                        asset_id: transaction_params[:asset_id],
+                        price: transaction_params[:price],
+                        quantity: transaction_params[:quantity],
+                        asset_name: Asset.find(transaction_params[:asset_id].to_i).name,
+                        date: Date.today)
     if @transaction.save
       redirect_to dashboard_path(@dashboard)
     else
