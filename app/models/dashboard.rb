@@ -116,8 +116,9 @@ class Dashboard < ApplicationRecord
 
   def values
     # la première date est celle de la premiere
-    first_date = self.transactions.first.date
-    number_of_days = (Date.today - first_date).to_i
+    @transactions = self.transactions.order('date ASC')
+    first_date = @transactions.first.date
+    number_of_days = (Date.today - first_date).to_i + 1
     dates = []
     i = 0
     number_of_days.times do
