@@ -1,12 +1,21 @@
 <div class="container" style="min-height: 83vh">
   <%if @dashboards.empty? %>
-    <h1 class='py-4'>You don't have any dashboard yet</h1>
-    <%= link_to "Add a dashboard", new_dashboard_path, class: "btn btn-outline-dark" %>
+    <h1 class='py-4'>You don't have any pilot yet</h1>
+    <%= link_to "Add a pilot", new_dashboard_path, class: "btn btn-outline-dark" %>
   <%else %>
-    <h1 class='py-4'>Your dashboards</h1>
+    <h1 class='py-4'>Your pilots</h1>
+    <%= link_to "Add a pilot", new_dashboard_path, class: "btn btn-outline-dark" %>
     <% @dashboards.each do |dashboard| %>
-      <div class="card my-4 p-4">
+      <div class="card my-4 p-4 flex-row justify-content-between w-50 shadow">
         <%= link_to dashboard.name, dashboard_path(dashboard) %>
+        <div>
+          <%= link_to edit_dashboard_path(dashboard) do%>
+            <i class="fas fa-edit"></i>
+          <% end %>
+          <%= link_to dashboard_path(dashboard), method: :delete, data: {confirm: "Are you sure?"} do%>
+            <i class="fas fa-trash"></i>
+          <% end %>
+        </div>
       </div>
     <% end %>
   <%end  %>

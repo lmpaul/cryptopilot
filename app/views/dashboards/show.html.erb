@@ -10,7 +10,7 @@
   <%= javascript_pack_tag 'highcharts', 'data-turbolinks-track': 'reload' %>
   <% @assets.keys.each do |key| %>
     <div class="card p-4 my-4">
-      <h2><%= @assets[key][:name] %> - PnL <%= @assets[key][:pnl] %>$ </h2>
+      <h3><%= @assets[key][:name] %> - PnL <%= @assets[key][:pnl] %>$ </h3>
       <p>Nombre de coins: <%= @assets[key][:quantity] %> </p>
       <p>Valeur par coin: <%= @assets[key][:market_price] %>$ </p>
       <p>Coût de revient par coin: <%= @assets[key][:average_cost] %>$ </p>

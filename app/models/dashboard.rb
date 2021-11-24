@@ -2,6 +2,7 @@ class Dashboard < ApplicationRecord
   serialize :asset
   belongs_to :user
   has_many :transactions
+  validates :name, presence: true
 
   def check_transactions_equality
     registered_transactions = self.transactions
