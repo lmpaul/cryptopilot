@@ -23,8 +23,8 @@ class Dashboard < ApplicationRecord
 
   def asset_qty(asset_id)
     asset_transactions = @transactions.where("asset_id = #{asset_id}")
-    buy_transactions = asset_transactions.where("direction = 'buy'")
-    sell_transactions = asset_transactions.where("direction = 'sell'")
+    buy_transactions = asset_transactions.where("direction = 'Buy'")
+    sell_transactions = asset_transactions.where("direction = 'Sell'")
     buying_sum = 0
     buy_transactions.each do |transaction|
       buying_sum += transaction.quantity
@@ -38,7 +38,7 @@ class Dashboard < ApplicationRecord
 
   def asset_total_spent(asset_id)
     asset_transactions = @transactions.where("asset_id = #{asset_id}")
-    buy_transactions = asset_transactions.where("direction = 'buy'")
+    buy_transactions = asset_transactions.where("direction = 'Buy'")
     total_spent = 0
     buy_transactions.each do |transaction|
       total_spent += (transaction.quantity * transaction.price)
@@ -48,7 +48,7 @@ class Dashboard < ApplicationRecord
 
   def tokens_bought(asset_id)
     asset_transactions = @transactions.where("asset_id = #{asset_id}")
-    buy_transactions = asset_transactions.where("direction = 'buy'")
+    buy_transactions = asset_transactions.where("direction = 'Buy'")
     token_bought = 0
     buy_transactions.each do |transaction|
       token_bought += transaction.quantity
