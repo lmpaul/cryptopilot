@@ -20,3 +20,13 @@
   opacity: 1;
   color: black;
 }
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dashboard-header .btn{
+  color: white;
+}
