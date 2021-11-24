@@ -11,4 +11,24 @@ class DashboardsController < ApplicationController
     @total_value = @dashboard.total_value(@assets)
     @total_pnl = @dashboard.total_pnl(@assets)
   end
+
+  def new
+    @dashboard = Dashboard.new
+  end
+
+  def create
+    @dashboard = Dashboard.new(dashboard_params)
+    @dashboard.user = current_user
+    if @dashboard.save
+      redirect_to dashboards_path
+    else
+      render :new
+    end
+  end
+
+  private
+
+  def dashboard_params
+    params.require(:dashboard).permit(:name)
+  end
 end
