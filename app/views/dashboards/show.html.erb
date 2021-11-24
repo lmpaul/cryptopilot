@@ -1,21 +1,50 @@
 <div class="container">
   <%= "<h1 id='foo' class='py-4' data-dashboard-id='#{@dashboard.id}'>#{@dashboard.name}</h1>".html_safe %>
-  <p>Votre PnL est de : <%= @total_pnl %>$ </p>
-  <p>Vous avez <%= @assets.keys.length %> crypto monnaies :</p>
+
+  <div class="d-inline-flex justify-content-around" style="width:100%; padding: 30px 100px">
+    <% @assets.keys.each do |key| %>
+      <div class="bg-white p-4 shadow rounded d-inline-flex align-items-center justify-content-center">
+        <%= image_tag Asset.find(key).image, size: "50x50" %>
+        <p style="margin:0 10px"><%= @assets[key][:name] %></p>
+      </div>
+    <% end %>
+  </div>
+
+
   <figure class="highcharts-figure">
     <div id="container"></div>
     <p class="highcharts-description">
     </p>
-</figure>
+  </figure>
   <%= javascript_pack_tag 'highcharts', 'data-turbolinks-track': 'reload' %>
+
+  <div class="card p-4 my-4">
+    <h2> <%= @dashboard.name %>'s key metrics</h2>
+    <% if @total_pnl > 0 %>
+      <p style="color:green">+<%= @total_pnl %>$</p>
+    <% else %>
+      <p style="color:red"><%= @total_pnl %>$</p>
+    <% end %>
+    <p>Total value: <%= @dashboard.total_value(@assets) %>$</p>
+    <p>Number of transactions: <%= @dashboard.transactions.length %></p>
+  </div>
+
   <% @assets.keys.each do |key| %>
     <div class="card p-4 my-4">
-      <h2><%= @assets[key][:name] %> - PnL <%= @assets[key][:pnl] %>$ </h2>
-      <p>Nombre de coins: <%= @assets[key][:quantity] %> </p>
-      <p>Valeur par coin: <%= @assets[key][:market_price] %>$ </p>
-      <p>Coût de revient par coin: <%= @assets[key][:average_cost] %>$ </p>
+      <div class="my-4 d-inline-flex align-items-center">
+        <%= image_tag Asset.find(key).image, size: "30x30" %>
+        <h2 style="margin:0 10px"><%= @assets[key][:name] %></h2>
+      </div>
+      <% if @assets[key][:pnl] > 0 %>
+        <p style="color:green"> + <%= @assets[key][:pnl] %>$</p>
+      <% else  %>
+        <p style="color:red"> <%= @assets[key][:pnl] %>$</p>
+      <% end %>
+      <p>Number of coins: <%= @assets[key][:quantity] %> </p>
+      <p>Coin market price: <%= @assets[key][:market_price] %>$ </p>
+      <p>Average cost per coin: <%= @assets[key][:average_cost] %>$ </p>
       <% asset_value = @assets[key][:quantity] *  @assets[key][:market_price] %>
-      <p>Pourcentage du portefeuille: <%= (asset_value / @total_value * 100).floor %>% </p>
+      <p>Share of this pilot: <%= (asset_value / @total_value * 100).floor %>% </p>
     </div>
   <% end %>
 </div>

@@ -12,9 +12,9 @@ u.save
 u = User.new(email: "paul@cryptopilot.com", username: "Paul", password: "azerty")
 u.save
 
-d = Dashboard.new(name: "Premier dashboard", user_id: 2)
+d = Dashboard.new(name: "First Pilot", user_id: 2)
 d.save
-d = Dashboard.new(name: "Deuxième dashboard", user_id: 2)
+d = Dashboard.new(name: "Second Pilot", user_id: 2)
 d.save
 
 vs_currency = "USD"
@@ -35,13 +35,13 @@ t = Transaction.new(direction: "sell", asset_name: "name", quantity: "1", price:
 t.save
 t = Transaction.new(direction: "sell", asset_name: "name", quantity: "1", price: "3000", date: "2021-11-23", dashboard_id: 1, asset_id: 1)
 t.save
-t = Transaction.new(direction: "buy", asset_name: "name", quantity: "2", price: "200", date: "2021-11-20", dashboard_id: 2, asset_id: 3)
+t = Transaction.new(direction: "buy", asset_name: "name", quantity: "2", price: "2000", date: "2021-11-12", dashboard_id: 2, asset_id: 3)
 t.save
-t = Transaction.new(direction: "buy", asset_name: "name", quantity: "4", price: "300", date: "2021-11-10", dashboard_id: 2, asset_id: 4)
+t = Transaction.new(direction: "buy", asset_name: "name", quantity: "4", price: "3000", date: "2021-11-11", dashboard_id: 2, asset_id: 4)
 t.save
-t = Transaction.new(direction: "sell", asset_name: "name", quantity: "2", price: "500", date: "2024-11-22", dashboard_id: 2, asset_id: 4)
+t = Transaction.new(direction: "sell", asset_name: "name", quantity: "2", price: "5000", date: "2024-11-20", dashboard_id: 2, asset_id: 4)
 t.save
-t = Transaction.new(direction: "sell", asset_name: "name", quantity: "1", price: "400", date: "2021-11-23", dashboard_id: 2, asset_id: 4)
+t = Transaction.new(direction: "sell", asset_name: "name", quantity: "1", price: "4000", date: "2021-11-21", dashboard_id: 2, asset_id: 4)
 t.save
 
 puts "✅ Databse seeded!"
