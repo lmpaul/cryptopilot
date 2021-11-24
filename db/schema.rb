@@ -16,10 +16,11 @@ ActiveRecord::Schema.define(version: 2021_11_23_142949) do
   enable_extension "plpgsql"
 
   create_table "assets", force: :cascade do |t|
-    t.integer "coin_mcap_id"
+    t.string "id_name"
     t.integer "rank"
     t.string "name"
     t.string "symbol"
+    t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

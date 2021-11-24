@@ -1,0 +1,10 @@
+<div class="container">
+  <%= simple_form_for [@transaction, @dashboard] do |f| %>
+    <%# <%= f. : %> <!-- Autocomplete assets -->
+    <%= f.input :price, as: :float %>
+    <%= f.input :quantity, as: :float %>
+    <%= f.date_field :date, as: :date%>
+    <%= f.hidden_field :dashboard, value: @dashboard.id %>
+    <%= f.button :submit %>
+  <% end %>
+</div>

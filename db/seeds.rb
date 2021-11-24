@@ -17,12 +17,13 @@ d.save
 d = Dashboard.new(name: "Deuxième dashboard", user_id: 2)
 d.save
 
-limit = 500
-res_api = URI.open("https://pro-api.coinmarketcap.com/v1/cryptocurrency/map",
-                  'X-CMC_PRO_API_KEY' => '0afa05e5-36e7-4bdd-b0f7-318edac9d63d')
-json = JSON.parse(res_api.read)
-json["data"].each do |d|
-  Asset.create(coin_mcap_id: d["id"], rank: d["rank"], name: d["name"], symbol: d["symbol"]) if d["rank"] < limit
+vs_currency = "USD"
+limit = 150
+
+gecko_api = URI.open("https://api.coingecko.com/api/v3/coins/markets?vs_currency=#{vs_currency}&per_page=#{limit}&page=1&sparkline=false")
+json = JSON.parse(gecko_api.read)
+json.each do |d|
+  Asset.create(id_name: d["id"], rank: d["market_cap_rank"], name: d["name"], symbol: d["symbol"], image: d["image"])
 end
 p "💵 Created #{limit} assets"
 
@@ -34,7 +35,6 @@ t = Transaction.new(direction: "sell", asset_name: "name", quantity: "1", price:
 t.save
 t = Transaction.new(direction: "sell", asset_name: "name", quantity: "1", price: "3000", date: "2021-11-23", dashboard_id: 1, asset_id: 1)
 t.save
-
 t = Transaction.new(direction: "buy", asset_name: "name", quantity: "2", price: "200", date: "2021-11-20", dashboard_id: 2, asset_id: 3)
 t.save
 t = Transaction.new(direction: "buy", asset_name: "name", quantity: "4", price: "300", date: "2021-11-10", dashboard_id: 2, asset_id: 4)
