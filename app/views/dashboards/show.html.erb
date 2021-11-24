@@ -8,6 +8,8 @@
       <p>Nombre de coins: <%= @assets[key][:quantity] %> </p>
       <p>Valeur par coin: <%= @assets[key][:market_price] %>$ </p>
       <p>Coût de revient par coin: <%= @assets[key][:average_cost] %>$ </p>
+      <% asset_value = @assets[key][:quantity] *  @assets[key][:market_price] %>
+      <p>Pourcentage du portefeuille: <%= (asset_value / @total_value * 100).floor %>% </p>
     </div>
   <% end %>
 </div>
