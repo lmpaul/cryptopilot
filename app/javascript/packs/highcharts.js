@@ -13,7 +13,8 @@ import Highcharts from 'highcharts/highstock';
                 zoomType: 'x'
             },
             title: {
-                text: 'Your dashboard value over time'
+                text: 'Your dashboard value over time',
+                style: ''
             },
             subtitle: {
                 text: document.ontouchstart === undefined ?
@@ -45,12 +46,12 @@ import Highcharts from 'highcharts/highstock';
                         ]
                     },
                     marker: {
-                        radius: 2
+                        radius: 4
                     },
-                    lineWidth: 1,
+                    lineWidth: 3,
                     states: {
                         hover: {
-                            lineWidth: 1
+                            lineWidth: 2
                         }
                     },
                     threshold: null

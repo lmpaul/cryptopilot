@@ -1,0 +1,42 @@
+.pilot-card {
+  padding: 30px 30px;
+  background-color: #2B2D2E;
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+  border: solid 1px rgb(105, 105, 105);
+  margin: 40px 0px;
+  color: white;
+  border-radius: 4px;
+}
+
+.pilot-card a {
+  color: white
+}
+
+.pilot-card i {
+  color: rgb(141, 141, 141)
+}
+
+.asset-icon-card {
+  padding: 30px 30px;
+  background-color: #2B2D2E;
+  display: flex;
+  justify-content: space-between;
+  border: solid 1px rgb(105, 105, 105);
+  color: white;
+  border-radius: 4px;
+  align-items: center;
+}
+
+.asset-card {
+  padding: 30px 30px;
+  background-color: #2B2D2E;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: solid 1px rgb(105, 105, 105);
+  color: white;
+  border-radius: 4px;
+  margin: 40px 0px;
+}
