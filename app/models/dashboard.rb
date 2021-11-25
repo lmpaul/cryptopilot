@@ -88,7 +88,7 @@ class Dashboard < ApplicationRecord
 
   def define_assets(date)
     @assets = create_hash(date)
-    @assets = self.asset if !self.asset.nil? && check_transactions_equality
+    # @assets = self.asset if !self.asset.nil? && check_transactions_equality
     @assets_keys = @assets.keys
     assets_market_price
     assets_pnl

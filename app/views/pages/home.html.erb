@@ -1,27 +1,13 @@
 <div class="banner">
-  <div class="container">
-    <h1>Welcome to  <strong>Crypto pilot</strong></h1>
-    <p>Track your investments</p>
-    <% if !user_signed_in? %>
-    <%= link_to "Sign up", new_user_registration_path, class: "btn btn-flat" %>
-    <% else %>
-    <%= link_to "My investments", dashboards_path, class:"btn btn-flat" %>
-    <% end %>
-  </div>
-</div>
-<div class="container">
-  <div class="home-card-product rounded">
-    <img class="rounded" src="https://res.cloudinary.com/mussadrame/image/upload/v1637665857/pexels-alesia-kozik-6777575_smiqrc.jpg" />
-    <div class="home-card-product-infos">
-      <h2 class="py-4 ">All you need to invest in crypto currencies</h2>
-      <p>It is a long established fact that a reader will be distracted by the readable <br>
-      content of a page when looking at its layout. The point of using Lorem Ipsum is that <br>
-      it has a more-or-less normal distribution of letters, as opposed to using 'Content here, <br>
-      content here', making it look like readable English. Many desktop publishing packages and <br>
-      web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem <br>
-      ipsum' will uncover many web sites still in their infancy. Various versions have evolved <br>
-      over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-      </p>
+  <div id="illustration">
+    <div class="container">
+      <h1>Welcome to  <strong>Crypto pilot</strong></h1>
+      <p>Track your investments</p>
+      <% if !user_signed_in? %>
+      <%= link_to "Sign up", new_user_registration_path, class: "btn btn-flat" %>
+      <% else %>
+      <%= link_to "My investments", dashboards_path, class:"btn btn-flat" %>
+      <% end %>
     </div>
   </div>
 </div>
