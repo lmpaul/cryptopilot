@@ -1,12 +1,13 @@
+<div class="py-5"></div>
 <div class="container">
   <div class="dashboard-header">
     <%= "<h1 id='foo' class='py-4' data-dashboard-id='#{@dashboard.id}'>#{@dashboard.name}</h1>".html_safe %>
-    <%= link_to 'Add Transaction', new_dashboard_transaction_path(@dashboard.id), class: "btn btn-flat"%>
+    <%= link_to 'Add Transaction', new_dashboard_transaction_path(@dashboard.id), class: "btn-blue"%>
   </div>
 
   <div class="d-inline-flex justify-content-around" style="width:100%; padding: 30px 100px">
     <% @assets.keys.each do |key| %>
-      <div class="bg-white p-4 shadow rounded d-inline-flex align-items-center justify-content-center">
+      <div class="asset-icon-card">
         <%= image_tag Asset.find(key).image, size: "50x50" %>
         <p style="margin:0 10px"><%= @assets[key][:name] %></p>
       </div>
@@ -15,13 +16,14 @@
 
 
   <figure class="highcharts-figure">
+
     <div id="container"></div>
     <p class="highcharts-description">
     </p>
   </figure>
   <%= javascript_pack_tag 'highcharts', 'data-turbolinks-track': 'reload' %>
 
-  <div class="card p-4 my-4">
+  <div class="asset-card">
     <h2> <%= @dashboard.name %>'s key metrics</h2>
     <% if @total_pnl > 0 %>
       <p style="color:green">+<%= @total_pnl %>$</p>
@@ -33,7 +35,7 @@
   </div>
 
   <% @assets.keys.each do |key| %>
-    <div class="card p-4 my-4">
+    <div class="asset-card">
       <div class="my-4 d-inline-flex align-items-center">
         <%= image_tag Asset.find(key).image, size: "30x30" %>
         <h2 style="margin:0 10px"><%= @assets[key][:name] %></h2>
