@@ -8,7 +8,7 @@
   <div class="d-inline-flex justify-content-around" style="width:100%; padding: 30px 100px">
     <% @assets.keys.each do |key| %>
       <div class="asset-icon-card">
-        <%= image_tag Asset.find(key).image, size: "50x50" %>
+         <%= image_tag Asset.where("id_name = '#{key}'").last.image, size: "50x50" %>
         <p style="margin:0 10px"><%= @assets[key][:name] %></p>
       </div>
     <% end %>
@@ -25,19 +25,14 @@
 
   <div class="asset-card">
     <h2> <%= @dashboard.name %>'s key metrics</h2>
-    <% if @total_pnl > 0 %>
-      <p style="color:green">+<%= @total_pnl %>$</p>
-    <% else %>
-      <p style="color:red"><%= @total_pnl %>$</p>
-    <% end %>
-    <p>Total value: <%= @dashboard.total_value(@assets) %>$</p>
+
     <p>Number of transactions: <%= @dashboard.transactions.length %></p>
   </div>
 
   <% @assets.keys.each do |key| %>
     <div class="asset-card">
       <div class="my-4 d-inline-flex align-items-center">
-        <%= image_tag Asset.find(key).image, size: "30x30" %>
+        <%= image_tag Asset.where("id_name = '#{key}'").last.image, size: "30x30" %>
         <h2 style="margin:0 10px"><%= @assets[key][:name] %></h2>
       </div>
       <% if @assets[key][:pnl] > 0 %>
@@ -49,7 +44,6 @@
       <p>Coin market price: <%= @assets[key][:market_price] %>$ </p>
       <p>Average cost per coin: <%= @assets[key][:average_cost] %>$ </p>
       <% asset_value = @assets[key][:quantity] *  @assets[key][:market_price] %>
-      <p>Share of this pilot: <%= (asset_value / @total_value * 100).floor %>% </p>
     </div>
   <% end %>
 </div>
