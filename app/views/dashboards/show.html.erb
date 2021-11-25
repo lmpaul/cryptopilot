@@ -10,7 +10,7 @@
     <% @assets.keys.each do |key| %>
       <div class="asset-icon-card">
          <%= image_tag Asset.where("id_name = '#{key}'").last.image, size: "50x50" %>
-        <p style="margin:0 10px"><%= @assets[key][:name] %></p>
+        <p style="margin:0 10px"><%= key.capitalize %></p>
       </div>
     <% end %>
   </div>
@@ -34,7 +34,7 @@
     <div class="asset-card">
       <div class="my-4 d-inline-flex align-items-center">
         <%= image_tag Asset.where("id_name = '#{key}'").last.image, size: "30x30" %>
-        <h2 style="margin:0 10px"><%= @assets[key][:name] %></h2>
+        <h2 style="margin:0 10px"><%= key.capitalize %></h2>
       </div>
       <% if @assets[key][:pnl] > 0 %>
         <p style="color:green"> + <%= @assets[key][:pnl] %>$</p>
