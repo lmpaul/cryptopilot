@@ -1,0 +1,13 @@
+<div class="container"></div>
+  <div class="card">
+    <h2><%= @transaction.asset_name %></h2>
+    <p><%= @transaction.direction %></p>
+    <p><%= @transaction.date %></p>
+    <p><%= @transaction.quantity %></p>
+    <p><%= @transaction.price %></p>
+    <div class="mt-4 d-flex-inline">
+      <%= link_to "Modifier", edit_dashboard_transaction_path(@dashboard, @transaction), class:"btn btn-primary", style:"width: 100px" %>
+      <%= link_to "Supprimer", dashboard_transaction_path(@dashboard, @transaction), class:"btn btn-danger", style:"width: 100px", method: :delete, data: {confirm: "Are you sure?"}, class:"btn btn-danger", style:"width: 100px" %>
+    </div>
+  </div>
+</div>

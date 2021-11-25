@@ -2,7 +2,8 @@
 <div class="container">
   <div class="dashboard-header">
     <%= "<h1 id='foo' class='py-4' data-dashboard-id='#{@dashboard.id}'>#{@dashboard.name}</h1>".html_safe %>
-    <%= link_to 'Add Transaction', new_dashboard_transaction_path(@dashboard.id), class: "btn-blue"%>
+    <%= link_to 'Add Transaction', new_dashboard_transaction_path(@dashboard), class: "btn-blue"%>
+    <%= link_to 'All Transactions', dashboard_transactions_path(@dashboard), class: "btn-flat"%>
   </div>
 
   <div class="d-inline-flex justify-content-around" style="width:100%; padding: 30px 100px">

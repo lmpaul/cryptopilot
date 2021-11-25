@@ -1,0 +1,13 @@
+
+
+      <div class="bg-white rounded p-3 shadow">
+        <h2>Edit your transaction</h2>
+        <%= simple_form_for [@dashboard, @transaction] do |f| %>
+          <%= f.input :direction %>
+          <%= f.input :asset_name %>
+          <%= f.input :quantity %>
+          <%= f.input :price %>
+          <%= f.input :date %>
+          <%= f.submit "Edit", class: "btn btn-primary" %>
+        <% end %>
+      </div>

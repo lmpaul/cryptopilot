@@ -1,7 +1,13 @@
 class TransactionsController < ApplicationController
-  # def index
-  #   @transactions = Transaction.all
-  # end
+  def index
+    @dashboard = Dashboard.find(params[:dashboard_id])
+    @transactions = Transaction.all
+  end
+
+  def show
+    @dashboard = Dashboard.find(params[:dashboard_id])
+    @transaction = Transaction.find(params[:id])
+  end
 
   def new
     @transaction = Transaction.new
@@ -22,6 +28,27 @@ class TransactionsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+    @transaction = Transaction.find(params[:id])
+    @dashboard = Dashboard.find(params[:dashboard_id])
+  end
+
+  def update
+    @transaction = Transaction.find(params[:id])
+    @transaction.update(transaction_params)
+    @dashboard = Dashboard.find(params[:dashboard_id])
+
+    redirect_to dashboard_transactions_path(@dashboard)
+  end
+
+  def destroy
+    @transaction = Transaction.find(params[:id])
+    @transaction.destroy
+    @dashboard = Dashboard.find(params[:dashboard_id])
+
+    redirect_to dashboard_transactions_path(@dashboard)
   end
 
   private
