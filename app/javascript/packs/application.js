@@ -33,6 +33,7 @@ import { initSelect2 } from '../components/init_select2';
 const root = "http://localhost:3000/"
 const prod = "https://cryptopilot.herokuapp.com/"
 const navbar_class = () => {
+  console.log(document.location.href)
   if (document.location.href === root || document.location === prod ){
     const navbar = document.querySelector('.navbar')
     const root = "http://localhost:3000/"
