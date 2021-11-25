@@ -6,9 +6,13 @@
   color: white;
   height: 100px;
   width: 100%;
-  background-color: #2B2D2E;
   bottom: 0;
 }
+
+.footer-bg {
+  background-color: #2B2D2E;
+}
+
 .footer-links {
   display: flex;
   align-items: center;
