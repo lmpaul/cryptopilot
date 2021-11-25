@@ -28,9 +28,26 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initSelect2 } from '../components/init_select2';
+import { loadDynamicBannerText } from '../components/_typescript';
+
+
+const navbar_class = () => {
+  const page = document.location.href
+  const root = "http://localhost:3000/"
+  const prod = "https://cryptopilot.herokuapp.com/"
+  if (page === root || page === prod ){
+    const navbar = document.querySelector('.navbar')
+    const footer = document.querySelector('.footer')
+    navbar.classList.remove('navbar-bg')
+    footer.classList.remove('footer-bg')
+  }
+}
+
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  loadDynamicBannerText();
   initSelect2();
+  navbar_class();
 });

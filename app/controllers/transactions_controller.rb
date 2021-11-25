@@ -22,7 +22,7 @@ class TransactionsController < ApplicationController
                         price: transaction_params[:price],
                         quantity: transaction_params[:quantity],
                         asset_name: Asset.find(transaction_params[:asset_id].to_i).name,
-                        date: Date.today)
+                        date: transaction_params[:date])
     if @transaction.save
       redirect_to dashboard_path(@dashboard)
     else
