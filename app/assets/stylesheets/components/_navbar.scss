@@ -30,35 +30,35 @@
 
 
 
-.btn-primary {
-    background-color: #EABF17 !important;
-    border-color: #EABF17 !important;
-    padding: 5px 20px;
+.btn-flat {
+    padding: 5px 20px !important;
 }
 
 .btn-secondary {
-    background-color: #A9A9A9 !important;
-    border-color: #A9A9A9 !important;
-    padding: 5px 25px;
-}
-
-.btn-primary:hover {
-    background-color: #BB9812!important;
-    border-color: #BB9812 !important;
+    color: white;
+    padding: 5px 25px !important;
+    border-radius: 2px;
+    background: #8a8888;
+    border-color: #8a8888;
+    transition: 0.5s;
 }
 
 .btn-secondary:hover {
-    background-color: #888888 !important;
-    border-color: #888888 !important;
+    color: white;
+    background: #8a8888;
+    border-color: #8a8888;
+    box-shadow: 0px 0px 30px #b6b4b4;
 }
-.avatar{
+
+.avatar {
   width: 40px;
 }
-.user-name{
+
+.user-name {
  align-items: center;
  display: flex;
 
- p{
+ p {
    margin-bottom: 0;
    margin-right: 10px;
    color: white;
