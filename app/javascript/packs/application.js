@@ -36,7 +36,7 @@ const navbar_class = () => {
   if (document.location.href === root || document.location === prod ){
     const navbar = document.querySelector('.navbar')
     const root = "http://localhost:3000/"
-    const prod = "https://cryptopilot.herokuapp.com/"
+    const prod = "https://cryptopilot.herokuapp.com"
     navbar.classList.remove('navbar-bg')
   }
 }
