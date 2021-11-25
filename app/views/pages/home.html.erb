@@ -2,7 +2,11 @@
   <div class="container">
     <h1>Welcome to  <strong>Crypto pilot</strong></h1>
     <p>Track your investments</p>
+    <% if !user_signed_in? %>
     <%= link_to "Sign up", new_user_registration_path, class: "btn btn-flat" %>
+    <% else %>
+    <%= link_to "My investments", dashboards_path, class:"btn btn-flat" %>
+    <% end %>
   </div>
 </div>
 <div class="container">

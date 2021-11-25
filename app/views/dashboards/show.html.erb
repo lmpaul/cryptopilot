@@ -1,5 +1,8 @@
 <div class="container">
-  <%= "<h1 id='foo' class='py-4' data-dashboard-id='#{@dashboard.id}'>#{@dashboard.name}</h1>".html_safe %>
+  <div class="dashboard-header">
+    <%= "<h1 id='foo' class='py-4' data-dashboard-id='#{@dashboard.id}'>#{@dashboard.name}</h1>".html_safe %>
+    <%= link_to 'Add Transaction',  new_dashboard_transaction_path(@dashboard.id), class: "btn btn-flat"%>
+  </div>
 
   <div class="d-inline-flex justify-content-around" style="width:100%; padding: 30px 100px">
     <% @assets.keys.each do |key| %>
