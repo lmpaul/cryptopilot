@@ -1,6 +1,5 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: #243A64;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -15,6 +14,7 @@
 .button:hover {
   color: white;
   text-decoration: none;
+  text-shadow: #d1d1d1;
 }
 
 .box {
@@ -23,6 +23,8 @@
   justify-content: space-between;
   align-items: center;
 }
+
+
 
 .btn-primary {
     background-color: #EABF17 !important;

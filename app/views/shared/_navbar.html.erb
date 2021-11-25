@@ -1,6 +1,6 @@
-<div class="navbar shadow navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
     <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "logo_crypto.png", width: "200"; %>
+    <%= image_tag "logo_crypto2.png", class:"rounded" , width: "200"; %>
     <% end %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -16,15 +16,14 @@
         <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class:'mx-4 btn btn-secondary' %>
         <li class="nav">
           <div class="user-name">
-
             <p> <%= current_user.username %></p>
-            <% if current_user.photo.attached? %>
-              <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%# if current_user.photo.attached? %>
+              <%#= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <%= link_to "Action", "#", class: "dropdown-item" %>
-                <%= link_to "Another action", "#", class: "dropdown-item" %>
+                <%#= link_to "Action", "#", class: "dropdown-item" %>
+                <%#= link_to "Another action", "#", class: "dropdown-item" %>
               </div>
-            <% end %>
+            <%# end %>
           </div>
         </li>
       <% else %>
