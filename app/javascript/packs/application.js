@@ -28,6 +28,7 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initSelect2 } from '../components/init_select2';
+import { loadDynamicBannerText } from '../components/_typescript';
 
 
 const navbar_class = () => {
@@ -42,17 +43,10 @@ const navbar_class = () => {
   }
 }
 
-
-
-
-
-
-
-
-
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  loadDynamicBannerText();
   initSelect2();
   navbar_class();
 });
