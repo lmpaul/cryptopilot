@@ -27,19 +27,19 @@ json.each do |d|
 end
 puts "💵 Created #{limit} assets"
 
-t = Transaction.new(direction: "Buy", asset_name: "name", quantity: "1", price: "100", date: "2021-11-10", dashboard_id: 1, asset_id: 2)
+t = Transaction.new(direction: "Buy", asset_name: "name", quantity: "1", price: "4000", date: "2021-11-10", dashboard_id: 1, asset_id: 2)
 t.save
-t = Transaction.new(direction: "Buy", asset_name: "name", quantity: "4", price: "500", date: "2021-11-20", dashboard_id: 1, asset_id: 1)
+t = Transaction.new(direction: "Buy", asset_name: "name", quantity: "4", price: "50000", date: "2021-11-20", dashboard_id: 1, asset_id: 1)
 t.save
 t = Transaction.new(direction: "Sell", asset_name: "name", quantity: "1", price: "2500", date: "2021-11-22", dashboard_id: 1, asset_id: 1)
 t.save
 t = Transaction.new(direction: "Sell", asset_name: "name", quantity: "1", price: "3000", date: "2021-11-23", dashboard_id: 1, asset_id: 1)
 t.save
-t = Transaction.new(direction: "Buy", asset_name: "name", quantity: "2", price: "2000", date: "2021-11-12", dashboard_id: 2, asset_id: 3)
+t = Transaction.new(direction: "Buy", asset_name: "name", quantity: "2", price: "500", date: "2021-11-12", dashboard_id: 2, asset_id: 3)
 t.save
-t = Transaction.new(direction: "Buy", asset_name: "name", quantity: "4", price: "3000", date: "2021-11-11", dashboard_id: 2, asset_id: 4)
+t = Transaction.new(direction: "Buy", asset_name: "name", quantity: "4", price: "1", date: "2021-11-11", dashboard_id: 2, asset_id: 4)
 t.save
-t = Transaction.new(direction: "Sell", asset_name: "name", quantity: "2", price: "5000", date: "2024-11-20", dashboard_id: 2, asset_id: 4)
+t = Transaction.new(direction: "Sell", asset_name: "name", quantity: "2", price: "5000", date: "2021-11-20", dashboard_id: 2, asset_id: 4)
 t.save
 t = Transaction.new(direction: "Sell", asset_name: "name", quantity: "1", price: "4000", date: "2021-11-21", dashboard_id: 2, asset_id: 4)
 t.save
