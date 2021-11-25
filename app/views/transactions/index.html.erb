@@ -1,0 +1,19 @@
+<div class="container">
+  <div >
+    <ul>
+      <% @transactions.each do |transaction| %>
+        <div class="card my-4">
+
+          <li><%= transaction.direction %></li>
+            <p><%= transaction.asset_name %></p>
+            <p><%= transaction.quantity %></p>
+            <p><%= transaction.price %></p>
+            <p><%= transaction.date %></p>
+
+            <%= link_to "Détails", dashboard_transaction_path(@dashboard, transaction), class:"btn btn-primary", style:"width: 100px" %>
+
+        </div>
+      <% end %>
+    </ul>
+  </div>
+</div>
