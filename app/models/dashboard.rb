@@ -1,7 +1,7 @@
 class Dashboard < ApplicationRecord
   serialize :asset
   belongs_to :user
-  has_many :transactions
+  has_many :transactions, dependent: :destroy
   validates :name, presence: true
 
   # Permet de récupérer la liste des id des assets actuellement dans le pilot

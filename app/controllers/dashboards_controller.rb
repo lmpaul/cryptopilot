@@ -29,7 +29,7 @@ class DashboardsController < ApplicationController
 
   def destroy
     @dashboard = Dashboard.find(params[:id])
-    @dashboard.delete
+    @dashboard.destroy!
     redirect_to dashboards_path
   end
 
