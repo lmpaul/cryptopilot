@@ -1,15 +1,17 @@
-<div class="container" class="2">
+<div class="py-5"></div>
+<div class="container py-5" style="min-height: 83vh">
   <div class="row justify-content-center">
     <div class="col-12 col-sm-4 col-xs-6">
-      <div class="form-login my-4">
+      <div class="form-tx my-4 text-cetner p-6">
         <%= simple_form_for [@dashboard, @transaction] do |f| %>
-          <%= f.select :asset_id, Asset.all.map { |r| [r.name, r.id, data: { image: r.image }]}, include_blank: true, input_html: { autocomplete: 'on'} %>
-          <%= f.select :direction, ["Buy", "Sell", "Add"] %>
-          <%= f.input :price, as: :float %>
+          <%= f.input :asset_id, as: :select, collection:  Asset.all.map { |r| [r.name, r.id, data: { image: r.image }]}, include_blank: true, input_html: { autocomplete: 'on'},  label: 'Asset' %>
+          <%= f.input :direction, as: :select,  collection: ["Buy", "Sell", "Add"], label: "Action"%>
+          <%= f.input :price, as: :float, label: "Price in USD" %>
           <%= f.input :quantity, as: :float %>
-          <%= f.datetime_field :date, as: :date%>
+          <p>Date and time of the transaction :<abbr title="required">*</abbr></p>
+          <%= f.datetime_field :date, as: :date, max: Date.today, label: "date" %>
           <%= f.hidden_field :dashboard, value: @dashboard.id %>
-          <%= f.button :submit %>
+          <%= f.button :submit, class: 'btn-primary mt-4' %>
         <% end %>
       </div>
     </div>
