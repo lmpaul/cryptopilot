@@ -1,6 +1,6 @@
-
-
-      <div class="bg-white rounded p-3 shadow">
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-4">
         <h2>Edit your transaction</h2>
         <%= simple_form_for [@dashboard, @transaction] do |f| %>
           <%= f.input :direction %>
@@ -10,4 +10,7 @@
           <%= f.input :date %>
           <%= f.submit "Edit", class: "btn btn-primary" %>
         <% end %>
-      </div>
+        <%= link_to "Back", :back %>
+    </div>
+  </div>
+</div>
