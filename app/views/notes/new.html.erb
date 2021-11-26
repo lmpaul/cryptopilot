@@ -2,12 +2,12 @@
 <div class="container py-5" style="min-height: 83vh">
   <div class="row">
     <div class="col-12 col-md-6 offset-lg-3">
-      <div class="bg-white rounded p-3 shadow">
+      <div class="form-night">
         <h1>Add a note</h1>
         <%= simple_form_for @note do |f| %>
           <%= f.input :date %>
           <%= f.input :content %>
-          <%= f.submit 'Add a note' %>
+          <%= f.submit 'Add a note', class: 'btn btn-primary' %>
         <% end %>
       </div>
     </div>
