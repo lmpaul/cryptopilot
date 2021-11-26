@@ -1,0 +1,25 @@
+<div class="py-5"></div>
+<div class="container" style="min-height: 83vh">
+  <%if @notes.empty? %>
+    <h1 class='py-4'>You don't have any note yet</h1>
+    <%= link_to "Add a note", new_note_path, class: "btn btn-outline-dark" %>
+  <%else %>
+    <div class="d-inline-flex align-items-center">
+      <h1 class='py-4'>Your notes</h1>
+      <%= link_to "Add a note", new_note_path, class: "btn-blue", style:"height:50%" %>
+    </div>
+    <% @notes.each do |note| %>
+      <div class="pilot-card">
+        <%= link_to note.date, note_path(note) %>
+        <div>
+          <%= link_to edit_note_path(note) do%>
+            <i class="fas fa-edit"></i>
+          <% end %>
+          <%= link_to note_path(note), method: :delete, data: {confirm: "Are you sure?"} do%>
+            <i class="fas fa-trash"></i>
+           <% end %>
+        </div>
+      </div>
+    <% end %>
+  <%end  %>
+</div>
