@@ -13,7 +13,7 @@ import Highcharts from 'highcharts';
                 zoomType: 'x'
             },
             title: {
-                text: 'Your dashboard value over time',
+                text: 'Your pilot value over time',
                 style: ''
             },
             subtitle: {
