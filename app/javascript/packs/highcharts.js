@@ -1,11 +1,11 @@
-import Highcharts from 'highcharts/highstock';
+import Highcharts from 'highcharts';
 
 
 (async () => {
   const item = document.querySelector('h1')
   const attribute = item.getAttribute('data-dashboard-id')
   // const data = await fetch('https://cdn.jsdelivr.net/gh/highcharts/highcharts@v7.0.0/samples/data/usdeur.json').then(r => r.json());
-  const data = await fetch(`/api/values?dashboard_id=${attribute}`).then(r => r.json());
+  const data = await fetch(`/dashboards/${attribute}/charts/values`).then(r => r.json());
 
     // Create the chart
     Highcharts.chart('container', {
@@ -13,7 +13,7 @@ import Highcharts from 'highcharts/highstock';
                 zoomType: 'x'
             },
             title: {
-                text: 'Your dashboard value over time',
+                text: 'Your pilot value over time',
                 style: ''
             },
             subtitle: {

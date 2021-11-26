@@ -2,13 +2,15 @@
 <div class="container">
   <div class="dashboard-header">
     <%= "<h1 id='foo' class='py-4' data-dashboard-id='#{@dashboard.id}'>#{@dashboard.name}</h1>".html_safe %>
-    <%= link_to 'Add Transaction', new_dashboard_transaction_path(@dashboard), class: "btn-blue"%>
-    <%= link_to 'All Transactions', dashboard_transactions_path(@dashboard), class: "btn-flat"%>
+    <div>
+      <%= link_to 'Add Transaction', new_dashboard_transaction_path(@dashboard), class: "btn-blue"%>
+      <%= link_to 'All Transactions', dashboard_transactions_path(@dashboard), class: "btn-flat"%>
+    </div>
   </div>
 
-  <div class="d-inline-flex justify-content-around" style="width:100%; padding: 30px 100px">
+  <div class="d-inline-flex align-left" style="width:100%">
     <% @assets.keys.each do |key| %>
-      <div class="asset-icon-card">
+      <div class="asset-icon-card mr-2">
          <%= image_tag Asset.where("id_name = '#{key}'").last.image, size: "50x50" %>
         <p style="margin:0 10px"><%= key.capitalize %></p>
       </div>
@@ -17,33 +19,41 @@
 
 
   <figure class="highcharts-figure">
-
-    <div id="container"></div>
-    <p class="highcharts-description">
-    </p>
+    <div id="container" ></div>
   </figure>
   <%= javascript_pack_tag 'highcharts', 'data-turbolinks-track': 'reload' %>
 
-  <div class="asset-card">
-    <h2> <%= @dashboard.name %>'s key metrics</h2>
-
-    <p>Number of transactions: <%= @dashboard.transactions.length %></p>
+  <div class="w-100 d-inline-flex justify-content-between">
+     <div class="asset-card"  style="width: 45%; height: 100%">
+      <h2 class="my-4"> <%= @dashboard.name %>'s key metrics</h2>
+      <% if @total_pnl > 0 %>
+        <p> Gobal Pnl: <span style="color:green">+ $<%= @total_pnl.round(2) %></span></p>
+      <% else %>
+        <p> Gobal Pnl: <span style="color:red">$<%= @total_pnl.round(2) %></span></p>
+      <% end %>
+      <p>Number of assets: <%= @assets.keys.length %></p>
+      <p>Total value: $<%= @dashboard.total_value(@assets).round(2) %></p>
+      <p>Number of transactions: <%= @dashboard.transactions.length %></p>
+    </div>
+    <div id="pie"></div>
+    <%= javascript_pack_tag 'piechart', 'data-turbolinks-track': 'reload' %>
   </div>
 
+
   <% @assets.keys.each do |key| %>
-    <div class="asset-card">
+    <div class="asset-card my-4">
       <div class="my-4 d-inline-flex align-items-center">
         <%= image_tag Asset.where("id_name = '#{key}'").last.image, size: "30x30" %>
         <h2 style="margin:0 10px"><%= key.capitalize %></h2>
       </div>
       <% if @assets[key][:pnl] > 0 %>
-        <p style="color:green"> + <%= @assets[key][:pnl] %>$</p>
-      <% else  %>
-        <p style="color:red"> <%= @assets[key][:pnl] %>$</p>
+        <p style="color:green"> + $<%= @assets[key][:pnl].round(2) %></p>
+      <% else %>
+        <p style="color:red"> $<%= @assets[key][:pnl].round(2) %></p>
       <% end %>
       <p>Number of coins: <%= @assets[key][:quantity] %> </p>
-      <p>Coin market price: <%= @assets[key][:market_price] %>$ </p>
-      <p>Average cost per coin: <%= @assets[key][:average_cost] %>$ </p>
+      <p>Coin market price: $<%= @assets[key][:market_price].round(2) %> </p>
+      <p>Average cost per coin: $<%= @assets[key][:average_cost] %></p>
       <% asset_value = @assets[key][:quantity] *  @assets[key][:market_price] %>
     </div>
   <% end %>

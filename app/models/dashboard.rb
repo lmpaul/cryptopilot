@@ -71,7 +71,7 @@ class Dashboard < ApplicationRecord
         number_of_transaction: Transaction.where("dashboard_id = #{self.id} AND asset_id = #{asset_id}").length,
         average_cost: tokens_bought(asset_id,date) == 0 ? 0 : (asset_total_spent(asset_id) / tokens_bought(asset_id, date)),
         market_price: PriceHistory.where("id_name = '#{Asset.find(asset_id).id_name}' AND date = ?", date).last.price,
-        pnl: (PriceHistory.where("id_name = '#{Asset.find(asset_id).id_name}' AND date = ?", date).last.price) - (tokens_bought(asset_id,date) == 0 ? 0 : (asset_total_spent(asset_id) / tokens_bought(asset_id, date))),
+        pnl: (PriceHistory.where("id_name = '#{Asset.find(asset_id).id_name}' AND date = ?", date).last.price) * asset_qty(asset_id, date) - (asset_total_spent(asset_id) / tokens_bought(asset_id, date) * asset_qty(asset_id, date)),
         date: date
       }
     end
@@ -163,5 +163,38 @@ class Dashboard < ApplicationRecord
       [date, total_value(array[dates.index(date)])]
     end
     return values
+  end
+
+  def percentage
+    assets = define_assets.last
+    total_value = total_value(assets)
+    keys = assets.keys
+    keys.each do |key|
+      assets[key][:percentage] = (assets[key][:quantity] * assets[key][:market_price]) / total_value * 100
+    end
+    return assets
+  end
+
+  def pie
+    assets = percentage()
+    p assets
+    keys = assets.keys
+    pie_array = keys.map do |key|
+      {
+        name: key,
+        y: assets[key][:percentage].round(2),
+        drilldown: key
+      }
+    end
+    return pie_array
+  end
+
+  def total_pnl(asset_hash)
+    keys = asset_hash.keys
+    total = 0
+    keys.each do |key|
+      total += asset_hash[key][:pnl]
+    end
+    return total
   end
 end
