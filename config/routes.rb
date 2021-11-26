@@ -4,9 +4,11 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :dashboards do
     resources :transactions
-    resources :charts, only: [:index]
+    get '/charts/values', to: 'charts#values'
+    get '/charts/pie', to: 'charts#pie'
+    resources :charts
   end
   namespace :api do
-      resources :values
-    end
+    resources :values
+  end
 end

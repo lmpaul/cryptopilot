@@ -164,4 +164,28 @@ class Dashboard < ApplicationRecord
     end
     return values
   end
+
+  def percentage
+    assets = define_assets.last
+    total_value = total_value(assets)
+    keys = assets.keys
+    keys.each do |key|
+      assets[key][:percentage] = (assets[key][:quantity] * assets[key][:market_price]) / total_value * 100
+    end
+    return assets
+  end
+
+  def pie
+    assets = percentage()
+    p assets
+    keys = assets.keys
+    pie_array = keys.map do |key|
+      {
+        name: key,
+        y: assets[key][:percentage].round(2),
+        drilldown: key
+      }
+    end
+    return pie_array
+  end
 end

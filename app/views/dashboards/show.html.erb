@@ -17,12 +17,15 @@
 
 
   <figure class="highcharts-figure">
-
     <div id="container"></div>
-    <p class="highcharts-description">
-    </p>
   </figure>
   <%= javascript_pack_tag 'highcharts', 'data-turbolinks-track': 'reload' %>
+
+  <figure class="highcharts-figure">
+    <div id="pie"></div>
+  </figure>
+  <%= javascript_pack_tag 'piechart', 'data-turbolinks-track': 'reload' %>
+
 
   <div class="asset-card">
     <h2> <%= @dashboard.name %>'s key metrics</h2>
