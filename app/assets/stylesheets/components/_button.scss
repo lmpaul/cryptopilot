@@ -2,9 +2,10 @@
   color: white;
   background-color: #1E51E0;
   border: 1px solid #1E51E0;
-  padding: 16px 8px;
+  padding: 12px 8px;
   border-radius: 4px;
   margin-left: 30px;
+  transition: 0.5s;
 }
 
 .btn-blue:hover {
@@ -14,16 +15,17 @@
 
 .btn-flat {
   color: white;
-  padding: 8px 30px;
-  border-radius: 2px;
-  background: #EABF17;
+  background-color: #EABF17;
+  border: 1px solid #EABF17;
+  padding: 12px 8px;
+  border-radius: 4px;
+  margin-left: 30px;
   transition: 0.5s;
 }
 
 .btn-flat:hover {
     color: white;
-    background: #EABF17;
-    box-shadow: 0px 0px 30px #e4c23d;
+    box-shadow: 0px 0px 20px #e4c23d;
 }
 
 .btn-gradient {
