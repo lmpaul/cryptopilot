@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :transactions
     get '/charts/values', to: 'charts#values'
     get '/charts/pie', to: 'charts#pie'
+    get '/charts/sparkline', to: 'charts#sparkline'
     resources :charts
   end
   namespace :api do
