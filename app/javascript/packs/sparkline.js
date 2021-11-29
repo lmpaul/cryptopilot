@@ -1,8 +1,5 @@
 import Highcharts from 'highcharts';
 
-
-
-
 const createChart = (asset) => {
   const item = document.querySelector('h1');
   const attribute = item.getAttribute('data-dashboard-id');
@@ -67,7 +64,6 @@ const createChart = (asset) => {
       })
     });
   }
-
 
 const cards = document.querySelectorAll(".asset");
 const assets = [];
