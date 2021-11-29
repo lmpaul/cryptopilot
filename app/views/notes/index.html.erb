@@ -2,7 +2,7 @@
 <div class="container" style="min-height: 83vh">
   <%if @notes.empty? %>
     <h1 class='py-4'>You don't have any note yet</h1>
-    <%= link_to "Add a note", new_note_path, class: "btn btn-add" %>
+    <%= link_to '<i class="fas fa-plus"></i>  Add a note'.html_safe, new_note_path, class: "btn-flat" %>
   <%else %>
     <div class="d-inline-flex align-items-center">
       <h1 class='py-4'>Your notes</h1>
