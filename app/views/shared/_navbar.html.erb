@@ -6,11 +6,19 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
       <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <div class="box">
-          <%= link_to "Dashboard", dashboards_path, class: "button" %>
-          <%= link_to "Journal", notes_path, class: "button" %>
+          <div id="home">
+            <%= link_to "Home", root_path, class: "navbar-buttons nav-active" %>
+          </div>
+          <div id="dashboard">
+            <%= link_to "Dashboard", dashboards_path, class: "navbar-buttons" %>
+          </div>
+          <div id="journal">
+            <%= link_to "Journal", notes_path, class: "navbar-buttons" %>
+          </div>
           <!--<%= link_to "Ressources", dashboards_path, class: "button" %>-->
         </div >
         <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class:'mx-4 btn btn-secondary' %>
@@ -40,8 +48,6 @@
     </ul>
   </div>
 </div>
-
-
 
 
 
