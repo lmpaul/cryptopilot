@@ -1,5 +1,41 @@
 <div class="py-5"></div>
+
 <div class="container" style="min-height: 83vh">
-<h1><%= @note.date %></h1>
-<p><%= @note.content %></p>
+
+  <h1>Note from : <%= @note.date.day %> <%= Date::MONTHNAMES[@note.date.month] %> <%= @note.date.year %></h1>
+  <div class="my-4 p-4 note-content">
+    <p><%= @note.content %></p>
+    <%= link_to '<i class="fas fa-edit"></i> Edit'.html_safe, edit_note_path(@note), class:"my-4" %>
+  </div>
+  <div class="py-3"></div>
+  <h2 class=>Transactions made this day: </h2>
+  <% if @transactions != [] %>
+    <% @transactions.each do |transaction| %>
+     <div class="card-transac my-4 w-100">
+        <div class="mt-4 d-flex-inline">
+          <p style="font-weight:bold">Type</p>
+          <p><%= transaction.direction %></p>
+        </div>
+        <div class="mt-4 d-flex-inline">
+          <p style="font-weight:bold">Asset</p>
+          <p><%= Asset.find(transaction.asset_id).id_name.capitalize %></p>
+        </div>
+        <div class="mt-4 d-flex-inline">
+          <p style="font-weight:bold">Quantity</p>
+          <p><%= transaction.quantity %></p>
+        </div>
+        <div class="mt-4 d-flex-inline">
+          <p style="font-weight:bold">Price</p>
+          <p><%= transaction.price %></p>
+        </div>
+        <div class="mt-4 d-flex-inline">
+          <p style="font-weight:bold">Date </p>
+          <p><%= transaction.date %></p>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <p style="color:grey; font-style:italic"> No transaction made this day</p>
+  <% end %>
+
 </div>

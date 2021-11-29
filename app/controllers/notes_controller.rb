@@ -18,7 +18,8 @@ class NotesController < ApplicationController
   end
 
   def show
-     @note = Note.find(params[:id])
+    @note = Note.find(params[:id])
+    @transactions = Transaction.where(date: @note.date)
   end
 
   def destroy
@@ -34,7 +35,7 @@ class NotesController < ApplicationController
   def update
     @note = Note.find(params[:id])
     @note.update(note_params)
-    redirect_to notes_path
+    redirect_to note_path(@note)
   end
 
   private

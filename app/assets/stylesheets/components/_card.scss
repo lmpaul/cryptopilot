@@ -131,4 +131,13 @@
 
 .paragraphe {
   display: flex;
+
+.note-content {
+  background-color: #2B2D2E;
+  border: solid 1px rgb(105, 105, 105);
+  border-radius: 4px;
 }
+
+.note-content i {
+  font-size: 14px;
+
