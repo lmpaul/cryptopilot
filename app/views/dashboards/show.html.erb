@@ -3,15 +3,15 @@
   <div class="container" style="height: 80vh">
       <h1>You don't have any transaction yet...</h1>
       <div class="py-4"></div>
-      <%= link_to 'Add Transaction', new_dashboard_transaction_path(@dashboard), class: "btn-blue"%>
+      <%= link_to 'Add Transaction', new_dashboard_transaction_path(@dashboard), class: "btn-flat"%>
   </div>
 <% else %>
   <div class="container">
     <div class="dashboard-header">
       <%= "<h1 id='foo' class='py-4' data-dashboard-id='#{@dashboard.id}'>#{@dashboard.name}</h1>".html_safe %>
       <div>
-        <%= link_to 'Add Transaction', new_dashboard_transaction_path(@dashboard), class: "btn-blue"%>
-        <%= link_to 'All Transactions', dashboard_transactions_path(@dashboard), class: "btn-flat"%>
+        <%= link_to '<i class="fas fa-plus"></i> Add Transaction'.html_safe, new_dashboard_transaction_path(@dashboard), class: "btn-flat"%>
+        <%= link_to 'All Transactions', dashboard_transactions_path(@dashboard), class: "btn-dark ml-2"%>
       </div>
     </div>
 
