@@ -10,7 +10,7 @@
     </div>
     <% @dashboards.each do |dashboard| %>
       <div class="pilot-card">
-        <%= link_to dashboard.name, dashboard_path(dashboard) %>
+        <%= link_to dashboard.name, dashboard_path(dashboard), style:"font-size: 24px" %>
         <div>
           <%= link_to edit_dashboard_path(dashboard) do%>
             <i class="fas fa-edit"></i>

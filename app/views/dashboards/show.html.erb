@@ -6,7 +6,6 @@
       <%= link_to 'Add Transaction', new_dashboard_transaction_path(@dashboard), class: "btn-blue"%>
   </div>
 <% else %>
-
   <div class="container">
     <div class="dashboard-header">
       <%= "<h1 id='foo' class='py-4' data-dashboard-id='#{@dashboard.id}'>#{@dashboard.name}</h1>".html_safe %>
@@ -32,7 +31,7 @@
     <%= javascript_pack_tag 'highcharts', 'data-turbolinks-track': 'reload' %>
 
     <div class="w-100 d-inline-flex justify-content-between">
-      <div class="asset-card"  style="width: 45%; height: 100%">
+      <div class="key-metrics-card"  style="width: 45%; height: 100%">
         <h2 class="my-4"> <%= @dashboard.name %>'s key metrics</h2>
         <% if @total_pnl > 0 %>
           <p> Gobal Pnl: <span style="color:green">+ $<%= @total_pnl.round(2) %></span></p>
@@ -49,22 +48,30 @@
 
 
     <% @assets.keys.each do |key| %>
-      <div class="asset-card my-4">
-        <div class="my-4 d-inline-flex align-items-center">
-          <%= image_tag Asset.where("id_name = '#{key}'").last.image, size: "30x30" %>
-          <h2 style="margin:0 10px"><%= key.capitalize %></h2>
+      <div class="asset-card asset my-4" data-asset="<%= key %>">
+        <div style="width: 50%">
+          <div class="my-4 d-inline-flex align-items-center">
+            <%= image_tag Asset.where("id_name = '#{key}'").last.image, size: "30x30" %>
+            <h2 style="margin:0 10px"><%= key.capitalize %></h2>
+          </div>
+
+          <div style="width: 45%">
+            <% if @assets[key][:pnl] > 0 %>
+              <p style="color:green"> + $<%= @assets[key][:pnl].round(2) %></p>
+            <% else %>
+              <p style="color:red"> $<%= @assets[key][:pnl].round(2) %></p>
+            <% end %>
+            <p>Value: $<%= (@assets[key][:quantity] * @assets[key][:market_price]).round(2) %></p>
+            <p>Number of coins: <%= @assets[key][:quantity] %> </p>
+            <p>Market price: $<%= @assets[key][:market_price].round(2) %> </p>
+            <p>Average cost per coin: $<%= @assets[key][:average_cost] %></p>
+            <% asset_value = @assets[key][:quantity] *  @assets[key][:market_price] %>
+          </div>
         </div>
-        <% if @assets[key][:pnl] > 0 %>
-          <p style="color:green"> + $<%= @assets[key][:pnl].round(2) %></p>
-        <% else %>
-          <p style="color:red"> $<%= @assets[key][:pnl].round(2) %></p>
-        <% end %>
-        <p>Value: $<%= (@assets[key][:quantity] * @assets[key][:market_price]).round(2) %></p>
-        <p>Number of coins: <%= @assets[key][:quantity] %> </p>
-        <p>Market price: $<%= @assets[key][:market_price].round(2) %> </p>
-        <p>Average cost per coin: $<%= @assets[key][:average_cost] %></p>
-        <% asset_value = @assets[key][:quantity] *  @assets[key][:market_price] %>
+        <div id="<%= key %>" style="height:250px; width: 50%" ></div>
       </div>
     <% end %>
   </div>
 <% end %>
+
+<%= javascript_pack_tag 'sparkline', 'data-turbolinks-track': 'reload' %>
