@@ -1,23 +1,40 @@
 
 <div class="py-5"></div>
-  <div class="container">
+  <div class="container" style="min-height: 70vh">
     <div class="card-headers my-4 w-100">
-      <p style="font-weight:bold">Type</p>
-      <p style="font-weight:bold">Asset</p>
-      <p style="font-weight:bold">Quantity</p>
-      <p style="font-weight:bold">Price</p>
-      <p style="font-weight:bold">Date </p>
       </div>
       <% @transactions.each do |transaction| %>
         <div class="card-transac my-4 w-100">
-            <p><%= transaction.direction %></p>
-            <p><%= Asset.find(transaction.asset_id).id_name.capitalize %></p>
-            <p><%= transaction.quantity %></p>
-            <p><%= transaction.price %></p>
-            <p><%= transaction.date %></p>
-            <!--<div class="mt-4 d-flex-inline">
-                <%= link_to "Détails", dashboard_transaction_path(@dashboard, transaction), class:"btn btn-primary", style:"width: 100px" %>
-            </div>-->
+            <div class="mt-4 d-flex-inline">
+              <p style="font-weight:bold">Type</p>
+              <p><%= transaction.direction %></p>
+            </div>
+            <div class="mt-4 d-flex-inline">
+              <p style="font-weight:bold">Asset</p>
+              <p><%= Asset.find(transaction.asset_id).id_name.capitalize %></p>
+            </div>
+            <div class="mt-4 d-flex-inline">
+              <p style="font-weight:bold">Quantity</p>
+              <p><%= transaction.quantity %></p>
+            </div>
+            <div class="mt-4 d-flex-inline">
+              <p style="font-weight:bold">Price</p>
+              <p><%= transaction.price %></p>
+            </div>
+            <div class="mt-4 d-flex-inline">
+              <p style="font-weight:bold">Date </p>
+              <p><%= transaction.date %></p>
+            </div>
+
+
+            <div class="mt-4 d-flex-inline">
+                <%= link_to edit_dashboard_transaction_path(@dashboard, transaction) do %>
+                  <i class="fas fa-edit"></i>
+                <% end %>
+                <%= link_to dashboard_transaction_path(@dashboard, transaction), method: :delete, data: {confirm: "Are you sure?"} do %>
+                  <i class="fas fa-trash"></i>
+                <% end %>
+            </div>
           </div>
       <% end %>
   </div>

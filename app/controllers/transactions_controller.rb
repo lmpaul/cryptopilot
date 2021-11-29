@@ -4,11 +4,6 @@ class TransactionsController < ApplicationController
     @transactions = Transaction.all
   end
 
-  def show
-    @dashboard = Dashboard.find(params[:dashboard_id])
-    @transaction = Transaction.find(params[:id])
-  end
-
   def new
     @transaction = Transaction.new
     @dashboard = Dashboard.find(params[:dashboard_id])
