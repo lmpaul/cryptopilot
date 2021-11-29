@@ -39,13 +39,13 @@ const navbar_class = () => {
     const footer = document.querySelector('.footer')
     navbar.classList.remove('navbar-bg')
     footer.classList.remove('footer-bg')
+    loadDynamicBannerText();
   }
 }
 
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-  // loadDynamicBannerText();
   initSelect2();
   navbar_class();
 });

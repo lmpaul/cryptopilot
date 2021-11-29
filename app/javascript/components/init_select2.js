@@ -9,8 +9,6 @@ function formatAsset(asset) {
     return asset.text;
   }
   // console.log();
-  console.log(asset.element.dataset.image);
-  console.log(asset.element);
   console.log("super");
   let $asset = $(
     '<span><img src="' + asset.element.dataset.image + '" class="img-flag" /> ' + asset.text + '</span>'
