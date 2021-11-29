@@ -1,5 +1,5 @@
 .pilot-card {
-  padding: 30px 30px;
+  padding: 15px 30px;
   background-color: #2B2D2E;
   display: flex;
   justify-content: space-between;
@@ -10,7 +10,27 @@
   border-radius: 4px;
 }
 
+.notes-card {
+  padding: 10px 30px;
+  background-color: #2B2D2E;
+  justify-content: space-between;
+  width: 400px;
+  border: solid 1px rgb(105, 105, 105);
+  margin: 40px 0px;
+  color: white;
+  border-radius: 4px;
+}
+
+.second-card {
+  display: flex;
+  justify-content: space-between;
+}
+
 .pilot-card a:hover {
+  color: rgb(141, 141, 141);
+}
+
+.notes-card a:hover {
   color: rgb(141, 141, 141);
 }
 
@@ -18,11 +38,23 @@
   color: white
 }
 
+.notes-card a {
+  color: white
+}
+
 .pilot-card i {
   color: rgb(141, 141, 141)
 }
 
+.notes-card i {
+  color: rgb(141, 141, 141)
+}
+
 .pilot-card i:hover {
+  color: white;
+}
+
+.notes-card i:hover {
   color: white;
 }
 

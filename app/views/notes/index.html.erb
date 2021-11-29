@@ -9,15 +9,26 @@
       <%= link_to "Add a note", new_note_path, class: "btn-blue", style:"height:50%" %>
     </div>
     <% @notes.each do |note| %>
-      <div class="pilot-card">
-        <%= link_to note.date, note_path(note) %>
-        <div>
-          <%= link_to edit_note_path(note) do%>
-            <i class="fas fa-edit"></i>
-          <% end %>
-          <%= link_to note_path(note), method: :delete, data: {confirm: "Are you sure?"} do%>
-            <i class="fas fa-trash"></i>
-           <% end %>
+      <div>
+        <div class="notes-card">
+          <div class="second-card">
+          <%= note.date %>
+           <%# <%= link_to note.date, note_path(note) %>
+            <div>
+             <%= link_to edit_note_path(note) do%>
+                <i class="fas fa-edit"></i>
+             <% end %>
+             <%= link_to note_path(note), method: :delete, data: {confirm: "Are you sure?"} do%>
+                <i class="fas fa-trash"></i>
+              <% end %>
+            </div>
+          </div>
+          <div>
+          <%= link_to note_path(note) do%>
+            <p><i><%= "#{note.content[0..15]} ..." %></i></p>
+            <% end %>
+          </div>
+
         </div>
       </div>
     <% end %>
