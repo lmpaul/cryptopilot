@@ -13,9 +13,9 @@
             <p>Date<abbr title="required">*</abbr></p>
             <%= f.date_field :date, as: :date, max: Date.today, label: "date" , style: "width: 100%" %>
             <%= f.hidden_field :dashboard, value: @dashboard.id %>
-            <%= f.button :submit, class: 'btn btn-flat mt-4 mb-2', style: "width: 100%" %>
+            <%= f.button :submit, class: 'btn-flat mt-4 mb-2', style: "width: 100%" %>
           <% end %>
-          <%= link_to "Back", :back, class: "btn btn-primary my-2", style: "width: 100%" %>
+          <%= link_to "Back", :back, class: "btn-dark my-2", style: "width: 100%" %>
         </div>
       </div>
     </div>

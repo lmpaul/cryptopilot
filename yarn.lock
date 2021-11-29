@@ -7531,6 +7531,11 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
+types.js@^1.9.3:
+  version "1.9.3"
+  resolved "https://registry.yarnpkg.com/types.js/-/types.js-1.9.3.tgz#41d3c6dfbb504934da536a63658d2ef7165c0c56"
+  integrity sha512-tzuUom3YMvKPf3Ac/dd7Ye9P/tqXp3cUkNE5xgFZPCQOQubOcZAitKOUIF9HV+o1/0RwScckL2Xxf8f5jXACUw==
+
 unbox-primitive@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/unbox-primitive/-/unbox-primitive-1.0.1.tgz#085e215625ec3162574dc8859abee78a59b14471"
