@@ -38,9 +38,7 @@ const navbar_class = () => {
   const prod = "https://cryptopilot.herokuapp.com/"
   if (page === root || page === prod ){
     const navbar = document.querySelector('.navbar')
-    const footer = document.querySelector('.footer')
     navbar.classList.remove('navbar-bg')
-    footer.classList.remove('footer-bg')
   }
 }
 
