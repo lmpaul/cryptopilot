@@ -16,8 +16,11 @@
 .btn-dark {
   background-color: black;
   color: gray;
-  border: 1px solid gray;
   padding: 5px 25px;
   border-radius: 4px;
   transition: 0.5s;
+}
+
+.btn-dark:hover{
+  box-shadow: 0px 0px 20px black;
 }
