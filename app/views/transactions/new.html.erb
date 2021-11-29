@@ -12,7 +12,8 @@
           <p>Date and time of the transaction :<abbr title="required">*</abbr></p>
           <%= f.date_field :date, as: :date, max: Date.today, label: "date" %>
           <%= f.hidden_field :dashboard, value: @dashboard.id %>
-          <%= f.button :submit, class: 'btn-primary mt-4' %>
+          <br>
+          <%= f.button :submit, class: 'btn-flat mt-4' %>
         <% end %>
       </div>
     </div>
