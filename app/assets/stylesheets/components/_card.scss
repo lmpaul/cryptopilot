@@ -41,9 +41,30 @@
   padding: 30px 30px;
   background-color: #2B2D2E;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: solid 1px rgb(105, 105, 105);
+  color: white;
+  border-radius: 4px;
+}
+
+.key-metrics-card {
+  padding: 30px 30px;
+  background-color: #2B2D2E;
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
   border: solid 1px rgb(105, 105, 105);
   color: white;
   border-radius: 4px;
+}
+
+.note-content {
+  background-color: #2B2D2E;
+  border: solid 1px rgb(105, 105, 105);
+  border-radius: 4px;
+}
+
+.note-content i {
+  font-size: 14px;
 }

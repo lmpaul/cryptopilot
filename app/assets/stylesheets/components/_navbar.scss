@@ -3,26 +3,35 @@
 }
 
 .navbar-bg {
-  background-color: #2B2D2E;
+  background-color: #181a1a;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
-.button {
+.navbar-buttons {
   color: #D0D0D0;
   text-decoration: none;
 }
 
-.button:hover {
+.nav-active {
+  color: #EABF17;
+  transition: 0.5s;
+}
+
+.nav-active:hover {
+  color: yellow !important;
+}
+
+.navbar-buttons:hover {
   color: white;
   text-decoration: none;
   text-shadow: #d1d1d1;
 }
 
 .box {
-  width: 150px;
+  width: 250px;
   display: flex;
   justify-content: space-between;
   align-items: center;

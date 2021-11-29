@@ -83,18 +83,20 @@ class Dashboard < ApplicationRecord
     #chercher le price de chaques asset par dates et le mettre dans Pricehistorys
     vs_currency = "USD"
     assets_id_list
-    PriceHistory.destroy_all
+    # PriceHistory.group(:date).having("count(*) > 1").destroy_all
     @assets_id_list.each do |asset_key|
       asset = Asset.find(asset_key.to_i)
       res_api = URI.open("https://api.coingecko.com/api/v3/coins/#{asset.id_name}/market_chart?vs_currency=#{vs_currency}&days=#{number_of_days}&interval=daily")
       json = JSON.parse(res_api.read)
+      json["prices"].delete_at(-2)
       json["prices"].each do |element|
-        PriceHistory.create(id_name: asset.id_name, date: Time.at(element[0]/1000).to_date, price: element[1], asset_id: asset.id)
+        price = PriceHistory.find_by(date: Time.at(element[0]/1000).to_date, id_name: asset.id_name)
+        if price.nil?
+          PriceHistory.create(id_name: asset.id_name, date: Time.at(element[0]/1000).to_date, price: element[1], asset_id: asset.id)
+        else
+          price.update(id_name: asset.id_name, date: Time.at(element[0]/1000).to_date, price: element[1], asset_id: asset.id)
+        end
       end
-    end
-    @assets_id_list.each do |asset_key|
-      a = PriceHistory.where("id_name ='#{Asset.find(asset_key).id_name}'")
-      a[number_of_days - 1].destroy
     end
   end
 

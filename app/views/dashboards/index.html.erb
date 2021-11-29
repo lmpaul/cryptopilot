@@ -1,16 +1,16 @@
 <div class="py-5"></div>
 <div class="container" style="min-height: 83vh">
   <%if @dashboards.empty? %>
-    <h1 class='py-4'>You don't have any pilot yet</h1>
-    <%= link_to "Add a pilot", new_dashboard_path, class: "btn btn-outline-dark" %>
+    <h1 class='py-4'>You don't have any pilot yet!</h1>
+    <%= link_to "Add a pilot", new_dashboard_path, class: "btn btn-blue" %>
   <%else %>
     <div class="d-inline-flex align-items-center">
       <h1 class='py-4'>Your pilots</h1>
-      <%= link_to "Add a pilot", new_dashboard_path, class: "btn-blue", style:"height:50%" %>
+      <%= link_to '<i class="fas fa-plus"></i> Add a pilot'.html_safe, new_dashboard_path, class: "btn-flat mx-4", style:"color: black; height:50%" %>
     </div>
     <% @dashboards.each do |dashboard| %>
       <div class="pilot-card">
-        <%= link_to dashboard.name, dashboard_path(dashboard) %>
+        <%= link_to dashboard.name, dashboard_path(dashboard), style:"font-size: 24px" %>
         <div>
           <%= link_to edit_dashboard_path(dashboard) do%>
             <i class="fas fa-edit"></i>
