@@ -2,7 +2,7 @@
 <div class="container" style="min-height: 83vh">
   <%if @dashboards.empty? %>
     <h1 class='py-4'>You don't have any pilot yet!</h1>
-    <%= link_to "Add a pilot", new_dashboard_path, class: "btn btn-blue" %>
+    <%= link_to '<i class="fas fa-plus"></i> Add a pilot'.html_safe, new_dashboard_path, class: "btn-flat" %>
   <%else %>
     <div class="d-inline-flex align-items-center">
       <h1 class='py-4'>Your pilots</h1>
