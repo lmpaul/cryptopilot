@@ -1,5 +1,5 @@
 .pilot-card {
-  padding: 30px 30px;
+  padding: 15px 30px;
   background-color: #2B2D2E;
   display: flex;
   justify-content: space-between;
@@ -10,7 +10,27 @@
   border-radius: 4px;
 }
 
+.notes-card {
+  padding: 10px 30px;
+  background-color: #2B2D2E;
+  justify-content: space-between;
+  width: 400px;
+  border: solid 1px rgb(105, 105, 105);
+  margin: 40px 0px;
+  color: white;
+  border-radius: 4px;
+}
+
+.second-card {
+  display: flex;
+  justify-content: space-between;
+}
+
 .pilot-card a:hover {
+  color: rgb(141, 141, 141);
+}
+
+.notes-card a:hover {
   color: rgb(141, 141, 141);
 }
 
@@ -18,11 +38,23 @@
   color: white
 }
 
+.notes-card a {
+  color: white
+}
+
 .pilot-card i {
   color: rgb(141, 141, 141)
 }
 
+.notes-card i {
+  color: rgb(141, 141, 141)
+}
+
 .pilot-card i:hover {
+  color: white;
+}
+
+.notes-card i:hover {
   color: white;
 }
 
@@ -59,6 +91,47 @@
   border-radius: 4px;
 }
 
+.card-headers {
+  overflow: hidden;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  justify-content: space-between;
+  padding: 0 50px;
+}
+
+.card-transac {
+  overflow: hidden;
+  height: 100px;
+  background-color: #2B2D2E;
+  box-shadow: 0 0 17px rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  border: solid 1px rgb(105, 105, 105);
+  justify-content: space-between;
+  padding: 0 50px;
+}
+
+.card-transac-infos  {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  color: green;
+  margin-left: 10px;
+}
+
+.show-transac {
+  margin-top: 120px;
+}
+
+.paragraphe {
+  display: flex;
+
 .note-content {
   background-color: #2B2D2E;
   border: solid 1px rgb(105, 105, 105);
@@ -67,4 +140,4 @@
 
 .note-content i {
   font-size: 14px;
-}
+

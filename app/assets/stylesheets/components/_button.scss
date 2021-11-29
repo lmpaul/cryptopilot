@@ -2,7 +2,7 @@
   color: white;
   background-color: #1E51E0;
   border: 1px solid #1E51E0;
-  padding: 12px 8px;
+  padding: 5px 25px;
   border-radius: 4px;
   transition: 0.5s;
 }
@@ -16,7 +16,7 @@
   color: white;
   background-color: #EABF17;
   border: 1px solid #EABF17;
-  padding: 12px 8px;
+  padding: 5px 25px;
   border-radius: 4px;
   transition: 0.5s;
 }
@@ -44,7 +44,7 @@
 .btn-add {
     color: white;
     padding: 5px 25px !important;
-    border-radius: 2px;
+    border-radius: 4px;
     background: #8a8888;
     border-color: #8a8888;
     transition: 0.5s;
@@ -55,4 +55,8 @@
     background: #8a8888;
     border-color: #8a8888;
     box-shadow: 0px 0px 30px #b6b4b4;
+}
+
+.btn-primary {
+  border-radius: 4px;
 }
