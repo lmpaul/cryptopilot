@@ -4,7 +4,8 @@
     <div class="col-12 col-sm-4 col-xs-6">
       <div class="form-night my-4 text-cetner p-6">
         <%= simple_form_for [@dashboard, @transaction] do |f| %>
-          <%= f.input :asset_id, as: :select, collection:  Asset.all.map { |r| [r.name, r.id, data: { image: r.image }]}, include_blank: true, input_html: { autocomplete: 'on'},  label: 'Asset' %>
+          <p>Asset: <abbr title="required">*</abbr></p>
+          <%= f.input :asset_id, as: :select, collection:  Asset.all.map { |r| [r.name, r.id, data: { image: r.image }]}, input_html: { class: 'select2 w-100' }, label: false %>
           <%= f.input :direction, as: :select,  collection: ["Buy", "Sell", "Add"], label: "Action"%>
           <%= f.input :price, as: :float, label: "Price in USD" %>
           <%= f.input :quantity, as: :float %>
