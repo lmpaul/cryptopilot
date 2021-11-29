@@ -45,12 +45,12 @@ const createChart = (asset) => {
                         ]
                     },
                     marker: {
-                        radius: 4
+                        radius: 2
                     },
-                    lineWidth: 3,
+                    lineWidth: 2,
                     states: {
                         hover: {
-                            lineWidth: 2
+                            lineWidth: 1
                         }
                     },
                     threshold: null
