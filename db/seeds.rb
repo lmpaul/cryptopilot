@@ -20,10 +20,4 @@ puts "💵 Created #{limit} assets"
 u = User.new(email: "paul@cryptopilot.com", username: "Paul", password: "azerty")
 u.save
 
-d = Dashboard.new(name: "My First Pilot", user_id: 1)
-d.save
-
-t = Transaction.new(direction: "Buy", asset_name: "name", quantity: "1", price: "200", date: "2021-11-01", dashboard_id: 1, asset_id: 5)
-t.save
-
 puts "✅ Databse seeded!"

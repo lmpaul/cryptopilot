@@ -124,6 +124,8 @@ class Dashboard < ApplicationRecord
 
   # TODO : Permet de créer le hash complet avec les actifs du pilot pour chaque jour depuis le début
   def define_assets
+    return [0] if self.transactions == []
+
     days = get_dates
     get_history(compute_number_of_days)
 
