@@ -2,11 +2,11 @@
 <div class="container py-5" style="min-height: 83vh">
   <div class="row">
     <div class="col-12 col-md-6 offset-lg-3">
-      <div class="bg-white rounded p-3 shadow">
+      <div class="form-night">
         <h2>Change the name of your pilot</h2>
         <%= simple_form_for @dashboard do |f| %>
           <%= f.input :name %>
-          <%= f.submit 'Change name' %>
+          <%= f.submit 'Change name', class: "btn btn-primary" %>
         <% end %>
       </div>
     </div>
