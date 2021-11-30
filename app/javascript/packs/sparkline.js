@@ -1,6 +1,6 @@
 import Highcharts from 'highcharts';
 
-const createChart = (asset) => {
+const buildCharts = (asset) => {
   const item = document.querySelector('h1');
   const attribute = item.getAttribute('data-dashboard-id');
   const key = asset
@@ -63,9 +63,13 @@ const createChart = (asset) => {
             }]
       })
     });
-  }
+}
 
-const cards = document.querySelectorAll(".asset");
-const assets = [];
-cards.forEach(card => assets.push(card.getAttribute('data-asset')));
-assets.forEach(asset => createChart(asset));
+const createSparklines = () => {
+  const cards = document.querySelectorAll(".asset");
+  const assets = [];
+  cards.forEach(card => assets.push(card.getAttribute('data-asset')));
+  assets.forEach(asset => buildCharts(asset));
+}
+
+export { createSparklines };

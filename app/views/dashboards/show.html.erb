@@ -25,13 +25,9 @@
     </div>
 
 
-    <figure class="highcharts-figure">
-
-      <div id="container" >
-        <p class="loader"><i class="fas fa-cogs"></i> Computing your data...</p>
-      </div>
-    </figure>
-    <%= javascript_pack_tag 'highcharts', 'data-turbolinks-track': 'reload' %>
+    <div id="chart" >
+      <p class="loader"><i class="fas fa-cogs"></i> Computing your data...</p>
+    </div>
 
     <div class="w-100 d-inline-flex justify-content-between">
       <div class="key-metrics-card">
@@ -75,14 +71,10 @@
             <% asset_value = @assets[key][:quantity] *  @assets[key][:market_price] %>
           </div>
         </div>
-        <div id="<%= key %>" style="height:250px; width: 50%" >
+        <div class="sparkline" id="<%= key %>" style="height:250px; width: 50%" >
           <p class="loader"><i class="fas fa-cogs"></i> Computing your data...</p>
         </div>
       </div>
     <% end %>
   </div>
 <% end %>
-
-<%= javascript_pack_tag 'load_charts', 'data-turbolinks-track': 'reload' %>
-<%= javascript_pack_tag 'sparkline', 'data-turbolinks-track': 'reload' %>
-<%= javascript_pack_tag 'piechart', 'data-turbolinks-track': 'reload' %>

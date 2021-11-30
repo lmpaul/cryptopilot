@@ -29,7 +29,9 @@ import "bootstrap";
 import { initSelect2 } from '../components/init_select2';
 import { loadDynamicBannerText } from '../components/_typescript';
 import { navbarActive } from "./navbar_active";
-
+import { createHighCharts } from "./highcharts";
+import { createSparklines } from "./sparkline";
+import { createPieChart } from "./piechart";
 
 const navbar_class = () => {
   const page = document.location.href
@@ -48,4 +50,13 @@ document.addEventListener('turbolinks:load', () => {
   navbarActive();
   initSelect2();
   navbar_class();
+  if(document.querySelector('#chart')) {
+    createHighCharts();
+  }
+  if(document.querySelector('.sparkline')) {
+    createSparklines();
+  }
+  if(document.querySelector('#pie')) {
+    createPieChart();
+  }
 });

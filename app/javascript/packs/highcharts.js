@@ -1,14 +1,14 @@
 import Highcharts from 'highcharts';
 
 
-(async () => {
+const createHighCharts = () => {
   const item = document.querySelector('h1')
   const attribute = item.getAttribute('data-dashboard-id')
   // const data = await fetch('https://cdn.jsdelivr.net/gh/highcharts/highcharts@v7.0.0/samples/data/usdeur.json').then(r => r.json());
-  const result = await fetch(`/dashboards/${attribute}/charts/values`).then(r => r.json());
-  const data = result.value
-    // Create the chart
-    Highcharts.chart('container', {
+  const data = fetch(`/dashboards/${attribute}/charts/values`)
+  .then(r => r.json())
+  .then((data) => {
+    Highcharts.chart('chart', {
             chart: {
                 zoomType: 'x'
             },
@@ -57,11 +57,15 @@ import Highcharts from 'highcharts';
                     threshold: null
                 }
             },
-
             series: [{
                 type: 'area',
                 name: 'USD',
                 data: data
             }]
-        });
-})();
+      });
+  })
+
+};
+
+
+export { createHighCharts };

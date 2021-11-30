@@ -164,8 +164,7 @@ class Dashboard < ApplicationRecord
     transactions = self.transactions.order('date ASC')
     assets = define_assets
     chart_values = values(transactions, assets)
-    pie_values = pie(assets)
-    return [chart_values, pie_values]
+    return chart_values
   end
 
   # Permet de générer les données pour le graph
@@ -189,7 +188,8 @@ class Dashboard < ApplicationRecord
   end
 
   # Permet de générer les valeurs pour le pie chart du pilot (date = aujourd'hui)
-  def pie(assets)
+  def pie
+    assets = define_assets
     assets = percentage(assets)
     keys = assets.keys
     pie_array = keys.map do |key|
