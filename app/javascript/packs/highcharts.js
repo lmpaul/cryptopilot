@@ -5,8 +5,8 @@ import Highcharts from 'highcharts';
   const item = document.querySelector('h1')
   const attribute = item.getAttribute('data-dashboard-id')
   // const data = await fetch('https://cdn.jsdelivr.net/gh/highcharts/highcharts@v7.0.0/samples/data/usdeur.json').then(r => r.json());
-  const data = await fetch(`/dashboards/${attribute}/charts/values`).then(r => r.json());
-
+  const result = await fetch(`/dashboards/${attribute}/charts/values`).then(r => r.json());
+  const data = result.value
     // Create the chart
     Highcharts.chart('container', {
             chart: {

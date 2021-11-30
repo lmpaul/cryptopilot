@@ -7,8 +7,8 @@ const createChart = (asset) => {
   fetch(`/dashboards/${attribute}/charts/sparkline`)
   .then(response => response.json())
   .then((data) => {
-      data = data[key]
 
+      data = data[key]
       Highcharts.chart(`${key}`, {
             chart: {
                 zoomType: ''
@@ -19,7 +19,7 @@ const createChart = (asset) => {
             },
             subtitle: {
                 text: document.ontouchstart === undefined ?
-                    '' : 'Pinch the chart to zoom in'
+                    'Asset market price' : 'Pinch the chart to zoom in'
             },
             xAxis: {
                 visible: false

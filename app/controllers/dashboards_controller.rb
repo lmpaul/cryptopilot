@@ -5,8 +5,14 @@ class DashboardsController < ApplicationController
 
   def show
     @dashboard = Dashboard.find(params[:id])
-    @assets = @dashboard.define_assets.last
-    @total_pnl = @dashboard.total_pnl(@assets) if @assets != 0
+    result = @dashboard.define_assets
+    if result == [0]
+      @assets = 0
+      @total_pnl = 0
+    else
+      @assets = @dashboard.positive_assets(result.last)
+      @total_pnl = @dashboard.total_pnl(@assets)
+    end
   end
 
   def new

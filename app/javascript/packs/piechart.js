@@ -1,25 +1,30 @@
-import Highcharts from 'highcharts';
+import Highcharts, { chart } from 'highcharts';
 
 
-(async () => {
-  const item = document.querySelector('h1')
-  const attribute = item.getAttribute('data-dashboard-id')
-  // const data = await fetch('https://cdn.jsdelivr.net/gh/highcharts/highcharts@v7.0.0/samples/data/usdeur.json').then(r => r.json());
-  const data = await fetch(`/dashboards/${attribute}/charts/pie`).then(r => r.json());
-
-    // Create the
-    Highcharts.chart('pie', {
+const createPieChart = () => {
+  const item = document.querySelector('h1');
+  const attribute = item.getAttribute('data-dashboard-id');
+  fetch(`/dashboards/${attribute}/charts/values`)
+  .then(response => response.json())
+  .then((data) => {
+    data = data.pie
+    const pie = Highcharts.chart('pie', {
     chart: {
-        type: 'pie'
+        type: 'pie',
+    },
+    loading: {
+      hideDuration:100,
+      labelStyle:{"fontWeight": "bold", "position": "relative", "top": "45%"},
+      showDuration:100,
+
     },
     title: {
         text: 'Your pilot repartition',
         style: ''
     },
     subtitle: {
-        text: 'Click the slices to view versions. Source: <a href="http://statcounter.com" target="_blank">statcounter.com</a>'
+        text: ''
     },
-
     accessibility: {
         announceNewData: {
             enabled: true
@@ -28,7 +33,6 @@ import Highcharts from 'highcharts';
             valueSuffix: '%'
         }
     },
-
     plotOptions: {
         series: {
             dataLabels: {
@@ -37,17 +41,20 @@ import Highcharts from 'highcharts';
             }
         }
     },
-
     tooltip: {
         headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
         pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
     },
-
     series: [
         {
-            name: "Browsers",
+            name: "Assets",
             colorByPoint: true,
             data: data
-            }]
-        });
-})();
+        }
+    ]
+    });
+  });
+}
+
+
+createPieChart();
