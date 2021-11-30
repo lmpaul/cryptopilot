@@ -1,31 +1,33 @@
 <div class="py-5"></div>
-<div class="container" style="min-height: 83vh">
+<div class="container-ressources" style="min-height: 83vh">
+  <div class="main-container">
   <%if @ressources.empty? %>
     <h1 class='py-4'>You don't have any ressource yet</h1>
     <%= link_to '<i class="fas fa-plus"></i>  Add a ressource'.html_safe, new_ressource_path, class: "btn-flat" %>
-  <%else %>
+    <%else %>
     <div class="d-inline-flex align-items-center">
       <h1 class='py-4'>Your ressources</h1>
       <%= link_to '<i class="fas fa-plus"></i> Add a ressource'.html_safe, new_ressource_path, class: "btn-flat ml-4" %>
     </div>
-    <% @ressources.each do |ressource| %>
-      <div>
-        <div class="ressources-card">
-          <div class="second-card">
-            <%= ressource.name %>
+      <% @ressources.each do |ressource| %>
+    <div>
+      <div class="ressources-card">
+        <div class="second-card">
+        <%= ressource.name %>
           <div>
-            <%= link_to edit_ressource_path(ressource) do%>
-              <i class="fas fa-edit"></i>
-            <% end %>
-            <%= link_to ressource_path(ressource.id), method: :delete, data: {confirm: "Are you sure?"} do%>
-              <i class="fas fa-trash"></i>
-            <% end %>
+          <%= link_to edit_ressource_path(ressource) do%>
+          <i class="fas fa-edit"></i>
+          <% end %>
+          <%= link_to ressource_path(ressource.id), method: :delete, data: {confirm: "Are you sure?"} do%>
+          <i class="fas fa-trash"></i>
+          <% end %>
           </div>
         </div>
         <div>
-          <%= ressource.description %>
+        <%= ressource.description %>
         </div>
       </div>
-    <% end %>
-  <%end  %>
+      <% end%>
+      <% end%>
+  </div>
 </div>

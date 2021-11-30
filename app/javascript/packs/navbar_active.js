@@ -1,7 +1,7 @@
 const navbarActive = () => {
   const path = window.location.pathname;
   const navLinks = document.querySelectorAll('.navbar-buttons');
-  if (navLinks) {
+  if (navLinks.length !== 0) {
     navLinks.forEach(link => link.classList.remove('nav-active'))
     if (path === '/') {
       navLinks[0].classList.add('nav-active')
@@ -15,4 +15,4 @@ const navbarActive = () => {
   }
 }
 
-export { navbarActive }
+export { navbarActive };
