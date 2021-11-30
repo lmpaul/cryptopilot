@@ -1,12 +1,12 @@
 class TransactionsController < ApplicationController
   def index
+    @dashboard = Dashboard.find(params[:dashboard_id])
     if params[:transaction]
-      @notes = Note.where("date < :from AND date < :to", { from: params[:notes_date][:date_from].to_date, to: params[:notes_date][:date_to].to_date })
-      @transactions = Offer.date_range.where(asset_list: params[:transaction][:asset_list])
-      @transactions = @transactions.where(user_id: current_user.id) if current_user
+      @transactions = Transaction.where("date > :from AND date < :to", { from: params[:transaction][:date_from].to_date, to: params[:transaction][:date_to].to_date })
+      @transactions = @transactions.where(asset_id: (params[:transaction][:asset_id]).to_i)
+      @transactions = @transactions.where(dashboard_id: @dashboard.id)
     else
-      @dashboard = Dashboard.find(params[:dashboard_id])
-      @transactions = Transaction.where(dashboard_id: @dashboard.id)
+    @transactions = Transaction.where(dashboard_id: @dashboard.id)
     end
   end
 
