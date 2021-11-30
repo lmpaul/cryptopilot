@@ -4,10 +4,10 @@ import Highcharts, { chart } from 'highcharts';
 const createPieChart = () => {
   const item = document.querySelector('h1');
   const attribute = item.getAttribute('data-dashboard-id');
-  fetch(`/dashboards/${attribute}/charts/values`)
+  fetch(`/dashboards/${attribute}/charts/pie`)
   .then(response => response.json())
   .then((data) => {
-    data = data.pie
+    data = data
     const pie = Highcharts.chart('pie', {
     chart: {
         type: 'pie',
@@ -57,4 +57,4 @@ const createPieChart = () => {
 }
 
 
-createPieChart();
+export { createPieChart };

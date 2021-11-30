@@ -2,11 +2,14 @@ class ChartsController < ApplicationController
 
   def values
     @dashboard = Dashboard.find(params[:dashboard_id])
-    hash = {
-      value: @dashboard.charts[0],
-      pie: @dashboard.charts[1]
-    }
-    render json: hash
+
+    render json: @dashboard.charts
+  end
+
+  def pie
+    @dashboard = Dashboard.find(params[:dashboard_id])
+
+    render json: @dashboard.pie
   end
 
   def sparkline
