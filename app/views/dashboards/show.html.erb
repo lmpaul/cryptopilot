@@ -18,7 +18,7 @@
     <div class="d-inline-flex align-left" style="width:100%">
       <% @assets.keys.each do |key| %>
         <div class="asset-icon-card mr-2">
-          <%= image_tag Asset.where("id_name = '#{key}'").last.image, size: "50x50" %>
+          <%= image_tag Asset.find_by(id_name: key).image, size: "50x50" %>
           <p style="margin:0 10px"><%= key.capitalize %></p>
         </div>
       <% end %>
@@ -26,12 +26,15 @@
 
 
     <figure class="highcharts-figure">
-      <div id="container" ></div>
+
+      <div id="container" >
+        <p class="loader"><i class="fas fa-cogs"></i> Computing your data...</p>
+      </div>
     </figure>
     <%= javascript_pack_tag 'highcharts', 'data-turbolinks-track': 'reload' %>
 
     <div class="w-100 d-inline-flex justify-content-between">
-      <div class="key-metrics-card"  style="width: 45%; height: 100%">
+      <div class="key-metrics-card">
         <h2 class="my-4"> <%= @dashboard.name %>'s key metrics</h2>
         <% if @total_pnl > 0 %>
           <p> Gobal Pnl: <span style="color:green">+ $<%= @total_pnl.round(2) %></span></p>
@@ -42,8 +45,12 @@
         <p>Total value: $<%= @dashboard.total_value(@assets).round(2) %></p>
         <p>Number of transactions: <%= @dashboard.transactions.length %></p>
       </div>
-      <div id="pie"></div>
-      <%= javascript_pack_tag 'piechart', 'data-turbolinks-track': 'reload' %>
+      <div class="key-metrics-card">
+        <div id="pie">
+          <p class="loader"><i class="fas fa-cogs"></i> Computing your data...</p>
+        </div>
+      </div>
+
     </div>
 
 
@@ -68,10 +75,14 @@
             <% asset_value = @assets[key][:quantity] *  @assets[key][:market_price] %>
           </div>
         </div>
-        <div id="<%= key %>" style="height:250px; width: 50%" ></div>
+        <div id="<%= key %>" style="height:250px; width: 50%" >
+          <p class="loader"><i class="fas fa-cogs"></i> Computing your data...</p>
+        </div>
       </div>
     <% end %>
   </div>
 <% end %>
 
+<%= javascript_pack_tag 'load_charts', 'data-turbolinks-track': 'reload' %>
 <%= javascript_pack_tag 'sparkline', 'data-turbolinks-track': 'reload' %>
+<%= javascript_pack_tag 'piechart', 'data-turbolinks-track': 'reload' %>
