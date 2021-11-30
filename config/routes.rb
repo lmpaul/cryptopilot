@@ -3,14 +3,11 @@ Rails.application.routes.draw do
    # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: 'pages#home'
   resources :notes
-  resources :dashboards do
+  resources :dashboards, shallow: true, do
     resources :transactions
     get '/charts/values', to: 'charts#values'
     get '/charts/pie', to: 'charts#pie'
     get '/charts/sparkline', to: 'charts#sparkline'
     resources :charts
-  end
-  namespace :api do
-    resources :values
   end
 end
