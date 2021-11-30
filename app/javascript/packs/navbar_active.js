@@ -9,6 +9,8 @@ const navbarActive = () => {
       navLinks[1].classList.add('nav-active')
     } else if (path.includes('notes')) {
       navLinks[2].classList.add('nav-active')
+    } else if (path.includes('ressources')) {
+      navLinks[3].classList.add('nav-active')
     }
   }
 }
