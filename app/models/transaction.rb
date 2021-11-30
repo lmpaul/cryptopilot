@@ -8,4 +8,5 @@ class Transaction < ApplicationRecord
   validates :quantity, presence: true
   validates :asset_name, presence: true
   validates :date, presence: true
+  scope :date_range, -> { where("date > params[:transaction][:date_from] AND date < params[:transaction][:date_to]") }
 end

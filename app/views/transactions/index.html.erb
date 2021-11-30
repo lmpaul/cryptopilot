@@ -1,6 +1,20 @@
 
 <div class="py-5"></div>
 <div class="container" style="min-height: 83vh">
+  <div class="card search-card w-100">
+    <h2>Search a transaction by asset or date:</h2>
+    <%= simple_form_for :transaction, url: dashboard_transactions_path, method: :get, html: { class: 'd-flex w-100 justify-content-around'} do |f| %>
+        <div class="inside-form">
+        <p class="ml-4 mr-2">From: <abbr title="required">*</abbr></p>
+        <%= f.date_field :date_from, as: :date, :value => Date.parse("2009-01-01").to_s %>
+        <p class="ml-4 mr-2">To: <abbr title="required">*</abbr></p>
+        <%= f.date_field :date_to, as: :date, :value => (Date.today + 1).to_s %>
+        <p class="ml-4 mr-2 ">Asset:</p>
+        <%= f.input :asset_id, as: :select, collection:  Asset.all.map { |r| [r.name, r.id, data: { image: r.image }]}, input_html: { class: 'select2 w-100', style: "width: 100%" }, label: false %>
+        <%= f.submit 'Filter', class: "btn btn-dark ml-4" %>
+      <% end %>
+      </div>
+  </div>
   <div class="card-headers my-4 w-100"></div>
     <% @transactions.each do |transaction| %>
       <div class="card-transac my-4 w-100">
@@ -21,10 +35,10 @@
               <td><p><%= transaction.price %></p></td>
               <td><p><%= transaction.date %></p></td>
               <td>
-                <%= link_to edit_dashboard_transaction_path(@dashboard, transaction) do %>
+                <%= link_to edit_transaction_path(@dashboard, transaction) do %>
                 <i class="fas fa-edit"></i>
                 <% end %>
-                <%= link_to dashboard_transaction_path(@dashboard, transaction), method: :delete, data: {confirm: "Are you sure?"} do %>
+                <%= link_to dashboard_transactions_path(@dashboard, transaction), method: :delete, data: {confirm: "Are you sure?"} do %>
                 <i class="fas fa-trash"></i>
                 <% end %></td>
             </tr>
