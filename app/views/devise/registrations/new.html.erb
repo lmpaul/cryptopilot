@@ -29,8 +29,12 @@
             <%= f.button :submit, "Sign up", class: "btn btn-flat" %>
           </div>
         <% end %>
-
-        <%= render "devise/shared/links" %>
+        <div class="center">
+          <p>OR</p>
+        </div>
+        <div>
+          <%= link_to "Log In", new_user_session_path, class: "btn btn-secondary" %>
+        </div>
       </div>
     </div>
   </div>
