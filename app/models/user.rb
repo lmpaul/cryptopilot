@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :dashboards
   has_one_attached :photo
+  has_many :ressource
 end
