@@ -10,8 +10,8 @@
     <div class="dashboard-header">
       <%= "<h1 id='foo' class='py-4' data-dashboard-id='#{@dashboard.id}'>#{@dashboard.name}</h1>".html_safe %>
       <div>
-        <%= link_to '<i class="fas fa-plus"></i> Add Transaction'.html_safe, new_dashboard_transaction_path(@dashboard), class: "btn-flat"%>
-        <%= link_to 'All Transactions', dashboard_transactions_path(@dashboard), class: "btn-dark ml-2"%>
+        <%= link_to '<i class="fas fa-plus"></i> Add Transaction'.html_safe, new_dashboard_transaction_path(@dashboard), class: "btn-flat", style: "height 100%" %>
+        <%= link_to 'All Transactions', dashboard_transactions_path(@dashboard), class: "btn-dark ml-3", style: "height 100%" %>
       </div>
     </div>
 
