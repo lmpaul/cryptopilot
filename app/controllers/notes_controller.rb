@@ -1,6 +1,11 @@
 class NotesController < ApplicationController
   def index
-    @notes = Note.where(user_id: current_user)
+    if params[:notes_date]
+      @notes = Note.where("date < :from AND date < :to", { from: params[:notes_date][:date_from].to_date, to: params[:notes_date][:date_to].to_date })
+      @notes = @notes.where(user_id: current_user)
+    else
+      @notes = Note.where(user_id: current_user)
+    end
   end
 
   def new

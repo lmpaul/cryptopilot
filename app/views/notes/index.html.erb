@@ -8,6 +8,18 @@
       <h1 class='py-4'>Your notes</h1>
       <%= link_to '<i class="fas fa-plus"></i> Add a note'.html_safe, new_note_path, class: "btn-flat ml-4" %>
     </div>
+    <div class='search-card'>
+      <h2 class="ml-4 mb-4">Sort your notes by dates :</h2>
+      <%= simple_form_for :notes_date, url: notes_path, method: :get do |f| %>
+      <div class="inside-form">
+        <p class="ml-4 mr-2">From:<abbr title="required">*</abbr></p>
+        <%= f.date_field :date_from, as: :date, :value => Date.parse("2009-01-01") %>
+        <p class="ml-4 mr-2">To:<abbr title="required">*</abbr></p>
+        <%= f.date_field :date_to, as: :date, :value => (Date.today + 1).to_s %>
+        <%= f.submit 'Filter', class: "btn btn-dark ml-4" %>
+      </div>
+      <% end %>
+    </div>
     <% @notes.each do |note| %>
       <div>
         <div class="notes-card">
