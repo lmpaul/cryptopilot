@@ -1,0 +1,27 @@
+.resources-nav {
+  width: 70%;
+  margin: 0 auto;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: solid 1px rgb(63, 62, 62);
+  border-radius: 20px;
+  background-color: rgba(0,0,0,0.4);
+  box-shadow: 4px 4px 4px rgba(0,0,0,0.6);
+}
+
+.resources-nav-link {
+  color: gray;
+  padding: 5px 0;
+  border-bottom: solid 2px gray;
+}
+
+.resources-nav-link:hover {
+  color: #997a00
+}
+
+.resource-active {
+  color: #EABF17;
+  border-bottom: solid 3px #EABF17;
+}

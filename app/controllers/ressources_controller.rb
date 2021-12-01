@@ -3,22 +3,16 @@ class RessourcesController < ApplicationController
     @ressources = Ressource.where(user_id: current_user)
   end
 
-  def new
-    @ressource = Ressource.new
+  def exchanges
+    @ressources = Ressource.where(category: "Exchange")
   end
 
-  def create
-    @ressource = Ressource.new(ressource_params)
-    @ressource.user = current_user
-    if @ressource.save
-      redirect_to ressources_path
-    else
-      render :new
-    end
+  def wallets
+    @ressources = Ressource.where(category: "Wallet")
   end
 
-  def show
-    @ressources = Ressource.find(params[:id])
+  def youtube
+    @ressources = Ressource.where(category: "Youtube")
   end
 
   def edit
@@ -28,12 +22,6 @@ class RessourcesController < ApplicationController
   def update
     @ressource = Ressource.find(params[:id])
     @ressource.update(ressource_params)
-    redirect_to ressources_path
-  end
-
-  def destroy
-    @ressource = Ressource.find(params[:id])
-    @ressource.destroy
     redirect_to ressources_path
   end
 

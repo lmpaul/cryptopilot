@@ -20,4 +20,17 @@ puts "💵 Created #{limit} assets"
 u = User.new(email: "paul@cryptopilot.com", username: "Paul", password: "azerty")
 u.save
 
+puts "👨🏻‍💻 User created"
+
+r = Ressource.new(name: "Binance", description: "First exchange by volume in the world", nb_up_votes: 10, user_id: 1, category: "Exchange")
+r.save
+
+r = Ressource.new(name: "MetaMask", description: "Most famous wallet for the  Ethereum network", nb_up_votes: 5, user_id: 1, category: "Wallet")
+r.save
+
+r = Ressource.new(name: "Hasheur", description: "Vulgarisation Crypto", nb_up_votes: 7, user_id: 1, category: "YouTube")
+r.save
+
+puts "📚 Resources created"
+
 puts "✅ Databse seeded!"

@@ -44,11 +44,27 @@ const navbar_class = () => {
   }
 }
 
+const resources_nav = () => {
+  const path = window.location.pathname;
+  console.log(path.split('/'))
+  if (path.split('/').includes('wallets')){
+    const item = document.querySelector('#wallets')
+    item.classList.toggle("resource-active")
+  } else if (path.split('/').includes('exchanges')) {
+    const item = document.querySelector('#exchanges')
+    item.classList.toggle("resource-active")
+  } else if (path.split('/').includes('youtube')) {
+    const item = document.querySelector('#youtube')
+    item.classList.toggle("resource-active")
+  }
+}
+
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   navbarActive();
   initSelect2();
   navbar_class();
+  resources_nav();
   if(document.querySelector('#chart')) {
     createHighCharts();
   }
