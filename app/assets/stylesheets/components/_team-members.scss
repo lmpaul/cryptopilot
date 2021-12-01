@@ -1,0 +1,34 @@
+.card-member {
+  border: solid gray 1px;
+  padding: 30px;
+  border-radius: 4px;
+  background-color: rgba(0,0,0,0.4);
+  display: flex;
+  margin: 40px auto;
+  width: 60%;
+  color: rgb(219, 219, 219);
+  align-items: center;
+}
+
+.card-member i {
+  color: rgb(104, 104, 104);
+  font-size: 40px;
+  margin-right: 10px;
+}
+
+.card-member i:hover {
+  color: #EABF17;
+}
+
+
+.member-pic {
+  object-fit: cover;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: solid 2px white;
+}
+
+.member-info {
+  margin-left: 50px;
+}
