@@ -15,35 +15,42 @@
       <% end %>
       </div>
   </div>
-  <div class="card-headers my-4 w-100"></div>
-    <% @transactions.each do |transaction| %>
-      <div class="card-transac my-4 w-100">
-        <div class="mt-4 d-flex-inline w-100" style="display: contents;">
-          <p class="mt-2" style="width: 25%"><img src="<%= Asset.find(transaction.asset_id).image %>" alt="Asset icon", width="20%" height="20%"">
-              <%= Asset.find(transaction.asset_id).id_name.capitalize %></p>
-          <table class="table-tx">
-            <tr>
-              <th><p style="font-weight:bold">Type</p></th>
-              <th><p style="font-weight:bold">Quantity</p></th>
-              <th><p style="font-weight:bold">Price</p></th>
-              <th><p style="font-weight:bold">Date </p></th>
-              <th colspan="2"><p style="font-weight:bold">Modifications</p></th>
-            </tr>
-            <tr>
-              <td><p><%= transaction.direction %></p></td>
-              <td><p><%= transaction.quantity %></p></td>
-              <td><p><%= transaction.price %></p></td>
-              <td><p><%= transaction.date %></p></td>
-              <td>
-                <%= link_to edit_dashboard_transaction_path(@dashboard, transaction) do %>
-                <i class="fas fa-edit"></i>
-                <% end %>
-                <%= link_to dashboard_transaction_path(@dashboard, transaction), method: :delete, data: {confirm: "Are you sure?"} do %>
-                <i class="fas fa-trash"></i>
-                <% end %></td>
-            </tr>
-          </table>
-        </div>
-      </div>
-    <% end %>
+
+  <table class= "mt-4 table-tx">
+    <thead>
+      <tr>
+        <th><p style="font-weight:bold">Name</p></th>
+        <th><p style="font-weight:bold">Type</p></th>
+        <th><p style="font-weight:bold">Quantity</p></th>
+        <th><p style="font-weight:bold">Price</p></th>
+        <th><p style="font-weight:bold">Date </p></th>
+        <th><p style="font-weight:bold">Modifications</p></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @transactions.each do |transaction| %>
+        <tr class="card-transac mb-4">
+          <td>
+            <div class="cell-with-logo">
+              <img src="<%= Asset.find(transaction.asset_id).image %>" alt="Asset icon", width="20%" height="20%">
+              <p><%= Asset.find(transaction.asset_id).id_name.capitalize %></p>
+            </div>
+          </td>
+          <td><p><%= transaction.direction %></p></td>
+          <td><p><%= transaction.quantity %></p></td>
+          <td><p><%= transaction.price %></p></td>
+          <td><p><%= transaction.date %></p></td>
+          <td>
+            <%= link_to edit_dashboard_transaction_path(@dashboard, transaction) do %>
+            <i class="fas fa-edit"></i>
+            <% end %>
+            <%= link_to dashboard_transaction_path(@dashboard, transaction), method: :delete, data: {confirm: "Are you sure?"} do %>
+            <i class="fas fa-trash"></i>
+            <% end %>
+          </td>
+        </tr>
+        <tr class="separator"></tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
