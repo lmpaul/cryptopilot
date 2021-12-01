@@ -2,20 +2,19 @@
 
 <div class="container" style="min-height: 83vh">
   <div class="card search-card w-100">
-    <h2>Search a transaction by asset or date:</h2>
+    <h2 class="mb-4">Search a transaction by asset or date:</h2>
     <%= simple_form_for :transaction, url: dashboard_transactions_path, method: :get, html: { class: 'd-flex w-100 justify-content-around'} do |f| %>
         <div class="inside-form">
         <p class="ml-4 mr-2">From: <abbr title="required">*</abbr></p>
-        <%= f.date_field :date_from, as: :date, :value => Date.parse("2009-01-01").to_s %>
+        <%= f.date_field :date_from, as: :date, :value => Date.parse("2009-01-01").to_s, class: "form-text" %>
         <p class="ml-4 mr-2">To: <abbr title="required">*</abbr></p>
-        <%= f.date_field :date_to, as: :date, :value => (Date.today + 1).to_s %>
+        <%= f.date_field :date_to, as: :date, :value => (Date.today + 1).to_s, class: "form-text" %>
         <p class="ml-4 mr-2 ">Asset:</p>
         <%= f.input :asset_id, as: :select, collection:  Asset.all.map { |r| [r.name, r.id, data: { image: r.image }]}, input_html: { class: 'select2 w-100' }, label: false %>
         <%= f.submit 'Filter', class: "btn btn-dark ml-4" %>
       <% end %>
       </div>
   </div>
-
   <table class= "mt-4 table-tx">
     <thead>
       <tr>
