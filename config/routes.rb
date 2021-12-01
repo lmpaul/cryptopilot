@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :notes
   resources :ressources
-  resources :dashboards, shallow: true do
+  resources :dashboards do
     resources :transactions
     get '/charts/values', to: 'charts#values'
     get '/charts/pie', to: 'charts#pie'

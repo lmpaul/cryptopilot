@@ -35,10 +35,10 @@
               <td><p><%= transaction.price %></p></td>
               <td><p><%= transaction.date %></p></td>
               <td>
-                <%= link_to edit_transaction_path(@dashboard, transaction) do %>
+                <%= link_to edit_dashboard_transaction_path(@dashboard, transaction) do %>
                 <i class="fas fa-edit"></i>
                 <% end %>
-                <%= link_to dashboard_transactions_path(@dashboard, transaction), method: :delete, data: {confirm: "Are you sure?"} do %>
+                <%= link_to dashboard_transaction_path(@dashboard, transaction), method: :delete, data: {confirm: "Are you sure?"} do %>
                 <i class="fas fa-trash"></i>
                 <% end %></td>
             </tr>
