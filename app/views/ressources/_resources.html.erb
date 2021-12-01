@@ -1,0 +1,9 @@
+<% @ressources.each do |ressource| %>
+  <div class="pilot-card" style="margin: 30px auto">
+    <div>
+      <h3><%= ressource.name %></h2>
+      <p><%= ressource.description %></p>
+      <p><i class="fas fa-arrow-circle-up"></i> <%= ressource.nb_up_votes %> votes</p>
+    </div>
+  </div>
+<% end%>
