@@ -20,11 +20,27 @@
             <%= link_to "Journal", notes_path, class: "navbar-buttons" %>
           </div>
           <div id="ressources">
-            <%= link_to "Ressources", ressources_path, class: "navbar-buttons" %>
+             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+             <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <li class="nav-item dropdown">
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <%= link_to 'Ressources', "#", class: "dropdown-toggle navbar-buttons", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
+               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                  <%= link_to "Exchanges", "#", class: "dropdown-item" %>
+                  <%= link_to "Wallets", "#", class: "dropdown-item" %>
+                  <%= link_to "Youtubes", "#", class: "dropdown-item" %>
+                  <%= link_to "Articles", "#", class: "dropdown-item" %>
+                </div>
+              </div>
+            </li>
           </div>
-        </div >
-        <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class:'mx-4 btn btn-dark' %>
-        <li class="nav">
+        </div>
+        <div class="navbar-buttons">
+          <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class:'mx-4 btn btn-dark' %>
+        </div>
+        <div class="navbar-buttons">
           <div class="user-name">
             <p> <%= current_user.username %></p>
             <% if current_user.photo.attached? %>
@@ -32,10 +48,9 @@
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <%= link_to "Edit profil",  edit_user_registration_path, class: "dropdown-item" %>
                 <%#= link_to "Another action", "#", class: "dropdown-item" %>
-              </div>
             <% end %>
           </div>
-        </li>
+        </div>
       <% else %>
     </div>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
