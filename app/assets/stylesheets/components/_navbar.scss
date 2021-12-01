@@ -31,9 +31,9 @@
 }
 
 .box {
-  width: 300px;
+  width: 450px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -66,4 +66,12 @@
    margin-right: 10px;
    color: white;
  }
+}
+
+.dropdown-menu{
+  background: black;
+}
+
+.dropdown-item{
+  color: white;
 }
