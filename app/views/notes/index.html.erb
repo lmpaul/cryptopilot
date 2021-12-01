@@ -1,6 +1,5 @@
 <div class="py-5"></div>
-<div class="container-notes" style="min-height: 83vh">
-  <div class="main-container">
+<div class="container" style="min-height: 83vh">
   <%if @notes.empty? %>
     <h1 class='py-4'>You don't have any note yet</h1>
     <%= link_to '<i class="fas fa-plus"></i>  Add a note'.html_safe, new_note_path, class: "btn-flat" %>
@@ -45,5 +44,4 @@
       </div>
     <% end %>
     <%end  %>
-  </div>
 </div>
