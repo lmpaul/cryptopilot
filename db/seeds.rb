@@ -28,7 +28,7 @@ r.save
 r = Ressource.new(name: "MetaMask", description: "Most famous wallet for the  Ethereum network", nb_up_votes: 5, user_id: 1, category: "Wallet")
 r.save
 
-r = Ressource.new(name: "Hasheur", description: "Vulgarisation Crypto", nb_up_votes: 7, user_id: 1, category: "YouTube")
+r = Ressource.new(name: "Hasheur", description: "Vulgarisation Crypto", nb_up_votes: 7, user_id: 1, category: "Youtube")
 r.save
 
 puts "📚 Resources created"
