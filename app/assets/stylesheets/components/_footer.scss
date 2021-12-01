@@ -1,12 +1,22 @@
 .footer {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  // justify-content: space-between;
   padding: 20px 50px;
   color: white;
   height: 100px;
   width: 100vw;
-  font-family: "open-sans";
+
+}
+
+.footer-secondary {
+  padding: 0px 10px;
+  text-decoration: none;
+  list-style-type: none;
+  color: white;
+}
+
+.footer h1 {
+  font-size: 15px;
 }
 
 .footer-bg {
