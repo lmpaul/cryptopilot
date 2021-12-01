@@ -1,5 +1,6 @@
 <div class="py-5"></div>
-<div class="container" style="min-height: 83vh">
+<div class="container-dashboards" style="min-height: 83vh">
+  <div class="main-container">
   <%if @dashboards.empty? %>
     <h1 class='py-4'>You don't have any pilot yet</h1>
     <%= link_to '<i class="fas fa-plus"></i> Add a pilot'.html_safe, new_dashboard_path, class: "btn-flat" %>
@@ -21,5 +22,6 @@
         </div>
       </div>
     <% end %>
-  <%end  %>
+    <%end  %>
+  </div>
 </div>
