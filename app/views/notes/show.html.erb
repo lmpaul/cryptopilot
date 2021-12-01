@@ -5,7 +5,7 @@
   <h1>Note from : <%= @note.date.day %> <%= Date::MONTHNAMES[@note.date.month] %> <%= @note.date.year %></h1>
   <div class="my-4 p-4 note-content">
     <p><%= @note.content %></p>
-    <%= link_to '<i class="fas fa-edit"></i> Edit'.html_safe, edit_note_path(@note), class:"my-4" %>
+    <p><%= link_to '<i class="fas fa-edit"> Edit</i>'.html_safe, edit_note_path(@note), class:"my-4" %></p>
   </div>
   <div class="py-3"></div>
   <h2 class=>Transactions made this day: </h2>

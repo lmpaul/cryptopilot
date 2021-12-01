@@ -96,7 +96,6 @@
   border-radius: 4px;
 }
 
-
 .card-headers {
   overflow: hidden;
   height: 60px;
@@ -143,8 +142,13 @@
   background-color: #2B2D2E;
   border: solid 1px rgb(105, 105, 105);
   border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  height: 70px;
+  align-items: center;
 }
 
 .note-content i {
+  text-align: start;
   font-size: 14px;
 }
