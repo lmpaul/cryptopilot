@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :notes
   resources :ressources, only: [:index, :edit, :update]
   resources :dashboards do
-    resources :transactions, only: [:index, :edit, :update, :new, :create]
+    resources :transactions, only: [:index, :edit, :update, :new, :create, :delete]
     get '/charts/values', to: 'charts#values'
     get '/charts/pie', to: 'charts#pie'
     get '/charts/sparkline', to: 'charts#sparkline'
