@@ -96,13 +96,13 @@ r.save
 image += 1
 puts "🖼️ Image #{image} seeded"
 
-photo = URI.open("https://logo-marque.com/wp-content/uploads/2021/03/Kraken-Logo.png")
-r = Ressource.new(name: "Kraken", description: "Kraken is a crypto exchange for everyone", category: "Exchange", link: "https://www.kraken.com")
-r.photo.attach(io: photo, filename: 'image', content_type: 'image/jpg')
-r.save
+# photo = URI.open("https://www.presse-citron.net/app/uploads/2021/09/Avis-Kraken.jpeg")
+# r = Ressource.new(name: "Kraken", description: "Kraken is a crypto exchange for everyone", category: "Exchange", link: "https://www.kraken.com")
+# r.photo.attach(io: photo, filename: 'image', content_type: 'image/jpg')
+# r.save
 
-image += 1
-puts "🖼️ Image #{image} seeded"
+# image += 1
+# puts "🖼️ Image #{image} seeded"
 
 photo = URI.open("https://cryptonaute.fr/wp-content/uploads/2021/11/logo-crypto.png")
 r = Ressource.new(name: "Crypto.com", description: "The World’s Fastest Growing Crypto App", category: "Exchange", link: "https://crypto.com/eea/")
@@ -194,7 +194,7 @@ puts "🖼️ Image #{image} seeded"
 
 for loop in (1..60)
   a = rand(2..13)
-  b = rand(1..16)
+  b = rand(1..15)
   r = Vote.new(user_id: a, ressource_id: b)
   r.save! unless Vote.where(user_id: a, ressource_id: b).length > 0
 end
