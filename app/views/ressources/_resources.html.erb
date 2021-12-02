@@ -1,11 +1,11 @@
 <% @ressources.each do |ressource| %>
   <div class="pilot-card" style="margin: 30px auto">
     <div class="d-inline-flex align-items-center">
-      <%= cl_image_tag ressource.photo.key, height: 70, width: 70, crop: :fill %>
+      <!--<%= cl_image_tag ressource.photo.key, height: 70, width: 70, crop: :fill %>-->
+      <%= link_to cl_image_tag(ressource.photo.key, height: 70, width: 70, crop: :fill), ressource.link, target: "_blank" %>
       <div class="px-4">
         <h3><%= ressource.name %></h3>
         <p><%= ressource.description %></p>
-        <!--<p><i class="fas fa-arrow-circle-up"></i> <%= ressource.nb_up_votes %> votes</p>-->
       </div>
     </div>
   </div>
