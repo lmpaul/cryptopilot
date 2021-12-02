@@ -96,7 +96,7 @@ r.save
 image += 1
 puts "🖼️ Image #{image} seeded"
 
-photo = URI.open("https://e7.pngegg.com/pngimages/465/269/png-clipart-kraken-bitcoin-cryptocurrency-exchange-ethereum-bitcoin-blue-text.png")
+photo = URI.open("https://logo-marque.com/wp-content/uploads/2021/03/Kraken-Logo.png")
 r = Ressource.new(name: "Kraken", description: "Kraken is a crypto exchange for everyone", category: "Exchange", link: "https://www.kraken.com")
 r.photo.attach(io: photo, filename: 'image', content_type: 'image/jpg')
 r.save
