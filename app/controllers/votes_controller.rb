@@ -1,7 +1,7 @@
 class VotesController < ApplicationController
 
   def create
-    @vote = Vote.new(user_id: vote_params[:user_id], ressource_id: vote_params[:ressource_id])
+    @vote = Vote.new(user_id: current_user.id, ressource_id: params[:ressource_id])
     @vote.save!
     @ressource = @vote.ressource
     category = @ressource.category

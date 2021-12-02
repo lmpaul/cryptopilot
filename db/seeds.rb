@@ -67,6 +67,8 @@ r = Ressource.new(name: "Binance", description: "Beyond operating the world's le
 r.photo.attach(io: photo, filename: 'image', content_type: 'image/jpg')
 r.save
 
+p "image 1"
+
 photo = URI.open("https://cryptologos.cc/logos/ftx-token-ftt-logo.png")
 r = Ressource.new(name: "FTX", description: "FTX Crypto Derivatives Exchange, built by traders, for traders", category: "Exchange", link: "https://www.ftx.com")
 r.photo.attach(io: photo, filename: 'image', content_type: 'image/jpg')
@@ -77,7 +79,7 @@ r = Ressource.new(name: "BitPanda", description: "Invest in what you believe in"
 r.photo.attach(io: photo, filename: 'image', content_type: 'image/jpg')
 r.save
 
-photo = URI.open("https://lh3.googleusercontent.com/proxy/adtVrdNUsFb_Z089kKebccwGWmJZG1EejWPCwQEtF6R9UlJZIQVOLBMkA2Pww2jQZzbTG88-AZGouAK43NXAu7xnlN5UUA5uURJYLMR6QR32DVDYyHitcss-JLE")
+photo = URI.open("https://play-lh.googleusercontent.com/PjoJoG27miSglVBXoXrxBSLveV6e3EeBPpNY55aiUUBM9Q1RCETKCOqdOkX2ZydqVf0")
 r = Ressource.new(name: "Coinbase", description: "Jump start your crypto portfolio", category: "Exchange", link: "https://www.coinbase.com")
 r.photo.attach(io: photo, filename: 'image', content_type: 'image/jpg')
 r.save
@@ -142,6 +144,24 @@ r = Ressource.new(name: "Cryptoast", description: "Des vidéos pour comprendre, 
 r.photo.attach(io: photo, filename: 'image', content_type: 'image/jpg')
 r.save
 
-puts "📚 Resources created"
+# for loop in (1..60)
+#   a = rand(2..13)
+#   b = rand(1..16)
+#   r = Vote.new(user_id: a, ressource_id: b)
+#   r.save! unless Vote.where(user_id: a, ressource_id: b).length > 0
+# end
+
+# puts "🗳️ vote seeded"
+
+# for loop in (2..13)
+#   r = Vote.new(user_id: loop, ressource_id: 1)
+#   r.save unless Vote.where(user_id: loop, ressource_id: 1).length > 0
+#   r = Vote.new(user_id: loop, ressource_id: 2)
+#   r.save unless Vote.where(user_id: loop, ressource_id: 2).length > 0
+# end
+
+puts "📈 exchanges voted"
+
+puts "📚 Resources created & voted"
 
 puts "✅ Databse seeded!"
