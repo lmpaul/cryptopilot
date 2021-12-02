@@ -104,7 +104,7 @@ r.save
 image += 1
 puts "🖼️ Image #{image} seeded"
 
-photo = URI.open("https://s2.coinmarketcap.com/static/img/coins/200x200/1776.png")
+photo = URI.open("https://cryptonaute.fr/wp-content/uploads/2021/11/logo-crypto.png")
 r = Ressource.new(name: "Crypto.com", description: "The World’s Fastest Growing Crypto App", category: "Exchange", link: "https://crypto.com/eea/")
 r.photo.attach(io: photo, filename: 'image', content_type: 'image/jpg')
 r.save
