@@ -6,7 +6,7 @@
       <div class="px-4">
         <h3><%= ressource.name %></h3>
         <p><%= ressource.description %></p>
-        <% if ressource.votes.length > 0 %>
+        <% if Vote.where(user_id: current_user.id, ressource_id: ressource.id).length > 0 %>
           <%= link_to "<i style='color:#EABF17' class='fas fa-thumbs-up'></i> Like (#{ressource.votes.length})".html_safe, ressource_vote_path(ressource, Vote.where("user_id = '#{current_user.id}' AND ressource_id = '#{ressource.id}'").first), method: :delete, style:"color: #EABF17; font-weight:bold" %>
         <% else %>
           <%= link_to "<i style='color:#EABF17' class='far fa-thumbs-up'></i> Like (#{ressource.votes.length})".html_safe, ressource_votes_path(ressource), method: :post, style:"color: gray" %>

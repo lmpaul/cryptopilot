@@ -62,103 +62,157 @@ u.save
 
 puts "👨🏻‍💻 User created"
 
+image = 0
+
 photo = URI.open("https://upload.wikimedia.org/wikipedia/commons/5/57/Binance_Logo.png")
 r = Ressource.new(name: "Binance", description: "Beyond operating the world's leading cryptocurrency exchange, Binance spans an entire ecosystem.", category: "Exchange", link: "https://www.binance.com")
 r.photo.attach(io: photo, filename: 'image', content_type: 'image/jpg')
 r.save
 
-p "image 1"
+image += 1
+puts "🖼️ Image #{image} seeded"
 
 photo = URI.open("https://cryptologos.cc/logos/ftx-token-ftt-logo.png")
 r = Ressource.new(name: "FTX", description: "FTX Crypto Derivatives Exchange, built by traders, for traders", category: "Exchange", link: "https://www.ftx.com")
 r.photo.attach(io: photo, filename: 'image', content_type: 'image/jpg')
 r.save
 
+image += 1
+puts "🖼️ Image #{image} seeded"
+
 photo = URI.open("https://cdn.bitpanda.com/media/blog/authors/bitpanda.jpg")
 r = Ressource.new(name: "BitPanda", description: "Invest in what you believe in", category: "Exchange", link: "https://www.bitpanda.com")
 r.photo.attach(io: photo, filename: 'image', content_type: 'image/jpg')
 r.save
+
+image += 1
+puts "🖼️ Image #{image} seeded"
 
 photo = URI.open("https://play-lh.googleusercontent.com/PjoJoG27miSglVBXoXrxBSLveV6e3EeBPpNY55aiUUBM9Q1RCETKCOqdOkX2ZydqVf0")
 r = Ressource.new(name: "Coinbase", description: "Jump start your crypto portfolio", category: "Exchange", link: "https://www.coinbase.com")
 r.photo.attach(io: photo, filename: 'image', content_type: 'image/jpg')
 r.save
 
+image += 1
+puts "🖼️ Image #{image} seeded"
+
 photo = URI.open("https://e7.pngegg.com/pngimages/465/269/png-clipart-kraken-bitcoin-cryptocurrency-exchange-ethereum-bitcoin-blue-text.png")
 r = Ressource.new(name: "Kraken", description: "Kraken is a crypto exchange for everyone", category: "Exchange", link: "https://www.kraken.com")
 r.photo.attach(io: photo, filename: 'image', content_type: 'image/jpg')
 r.save
+
+image += 1
+puts "🖼️ Image #{image} seeded"
 
 photo = URI.open("https://s2.coinmarketcap.com/static/img/coins/200x200/1776.png")
 r = Ressource.new(name: "Crypto.com", description: "The World’s Fastest Growing Crypto App", category: "Exchange", link: "https://crypto.com/eea/")
 r.photo.attach(io: photo, filename: 'image', content_type: 'image/jpg')
 r.save
 
+image += 1
+puts "🖼️ Image #{image} seeded"
+
 photo = URI.open("https://img2.freepng.fr/20181123/qfz/kisspng-swissborg-cryptocurrency-bitcoin-logo-ethereum-5bf7db4468b465.2925238615429701804289.jpg")
 r = Ressource.new(name: "Swissborg", description: "Invest in cryptos the smart way.", category: "Exchange", link: "https://swissborg.com/")
 r.photo.attach(io: photo, filename: 'image', content_type: 'image/jpg')
 r.save
+
+image += 1
+puts "🖼️ Image #{image} seeded"
 
 photo = URI.open("https://www.pngkit.com/png/detail/26-268992_metamask-metamask-wallet.png")
 r = Ressource.new(name: "MetaMask", description: "A crypto wallet & gateway to blockchain apps", category: "Wallet", link: "https://www.metamask.io")
 r.photo.attach(io: photo, filename: 'image', content_type: 'image/jpg')
 r.save
 
+image += 1
+puts "🖼️ Image #{image} seeded"
+
 photo = URI.open("https://ph-files.imgix.net/f05a61be-d906-4ad8-a68d-88f7c257574d.png?auto=format")
 r = Ressource.new(name: "Phantom", description: "Turn your browser into a crypto wallet", category: "Wallet", link: "https://www.phantom.app")
 r.photo.attach(io: photo, filename: 'image', content_type: 'image/jpg')
 r.save
+
+image += 1
+puts "🖼️ Image #{image} seeded"
 
 photo = URI.open("https://logowik.com/content/uploads/images/t_pegasus5022.jpg")
 r = Ressource.new(name: "1inch Network", description: "The 1inch Network unites decentralized protocols whose synergy enables the most lucrative, fastest and protected operations in the DeFi space", category: "Wallet", link: "https://1inch.io/")
 r.photo.attach(io: photo, filename: 'image', content_type: 'image/jpg')
 r.save
 
+image += 1
+puts "🖼️ Image #{image} seeded"
+
 photo = URI.open("https://airdrops.io/wp-content/uploads/2021/04/Maiar-logo.jpg")
 r = Ressource.new(name: "Maiar Exchange", description: "Swap assets instantly, globally, inexpensively, automatically", category: "Wallet", link: "https://maiar.exchange/")
 r.photo.attach(io: photo, filename: 'image', content_type: 'image/jpg')
 r.save
+
+image += 1
+puts "🖼️ Image #{image} seeded"
 
 photo = URI.open("https://cryptonaute.fr/wp-content/uploads/2021/01/polkadot-logo.png")
 r = Ressource.new(name: "Polkadost.js", description: "A wallet built on the polkadot-js stack", category: "Wallet", link: "https://polkadot.js.org/")
 r.photo.attach(io: photo, filename: 'image', content_type: 'image/jpg')
 r.save
 
+image += 1
+puts "🖼️ Image #{image} seeded"
+
 photo = URI.open("https://pbs.twimg.com/card_img/1464914764333731840/75jB25px?format=png&name=360x360")
 r = Ressource.new(name: "Hasheur", description: "Vulgarisation Crypto", category: "Youtube", link: "https://www.youtube.com/c/Hasheur")
 r.photo.attach(io: photo, filename: 'image', content_type: 'image/jpg')
 r.save
+
+image += 1
+puts "🖼️ Image #{image} seeded"
 
 photo = URI.open("https://yt3.ggpht.com/ytc/AKedOLTaedqRavlxp3hj1YGicidnpmfnZvzMWDiJRMpFJQ=s900-c-k-c0x00ffffff-no-rj")
 r = Ressource.new(name: "CryptoMatrix", description: "La quotidienne française crypto", category: "Youtube", link: "https://www.youtube.com/channel/UCefQC4Y-X9MBRuYBKc2waiQ")
 r.photo.attach(io: photo, filename: 'image', content_type: 'image/jpg')
 r.save
 
+image += 1
+puts "🖼️ Image #{image} seeded"
+
 photo = URI.open("https://bitcoin.fr/wp-content/uploads/2017/09/journal-du-coin.jpg")
 r = Ressource.new(name: "Journal du Coin", description: "Découvrez toute l'actualité du Bitcoin et des cryptomonnaies, allant de l'explication de leur fonctionnement à des vidéos d'analyses techniques.", category: "Youtube", link: "https://www.youtube.com/channel/UC7qnB0XxzOEwWWn9Q6HPmCw")
 r.photo.attach(io: photo, filename: 'image', content_type: 'image/jpg')
 r.save
+
+image += 1
+puts "🖼️ Image #{image} seeded"
 
 photo = URI.open("https://yt3.ggpht.com/ytc/AKedOLTJXB6wXVVQEgDn5hEy5VlA4wev04g2ErIMBTSW=s900-c-k-c0x00ffffff-no-rj")
 r = Ressource.new(name: "Cryptoast", description: "Des vidéos pour comprendre, décrypter et suivre l’actualité du Bitcoin et des cryptomonnaies. ", category: "Youtube", link: "https://www.youtube.com/c/Cryptoast")
 r.photo.attach(io: photo, filename: 'image', content_type: 'image/jpg')
 r.save
 
-# for loop in (1..60)
-#   a = rand(2..13)
-#   b = rand(1..16)
-#   r = Vote.new(user_id: a, ressource_id: b)
-#   r.save! unless Vote.where(user_id: a, ressource_id: b).length > 0
-# end
+image += 1
+puts "🖼️ Image #{image} seeded"
 
-# puts "🗳️ vote seeded"
+for loop in (1..60)
+  a = rand(2..13)
+  b = rand(1..16)
+  r = Vote.new(user_id: a, ressource_id: b)
+  r.save! unless Vote.where(user_id: a, ressource_id: b).length > 0
+end
 
-# for loop in (2..13)
-#   r = Vote.new(user_id: loop, ressource_id: 1)
-#   r.save unless Vote.where(user_id: loop, ressource_id: 1).length > 0
-#   r = Vote.new(user_id: loop, ressource_id: 2)
-#   r.save unless Vote.where(user_id: loop, ressource_id: 2).length > 0
-# end
+puts "🗳️ vote seeded"
+
+for loop in (2..13)
+  r = Vote.new(user_id: loop, ressource_id: 1)
+  r.save unless Vote.where(user_id: loop, ressource_id: 1).length > 0
+  r = Vote.new(user_id: loop, ressource_id: 2)
+  r.save unless Vote.where(user_id: loop, ressource_id: 2).length > 0
+end
+
+for loop in (2..9)
+  r = Vote.new(user_id: loop, ressource_id: 1)
+  r.save unless Vote.where(user_id: loop, ressource_id: 3).length > 0
+end
+
 
 puts "📈 exchanges voted"
 
