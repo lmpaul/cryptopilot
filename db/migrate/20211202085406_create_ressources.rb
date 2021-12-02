@@ -3,10 +3,7 @@ class CreateRessources < ActiveRecord::Migration[6.0]
     create_table :ressources do |t|
       t.text :name
       t.text :description
-      t.integer :nb_up_votes
-      t.references :user, null: false, foreign_key: true
-
-      t.timestamps
+      t.text :category
     end
   end
 end
