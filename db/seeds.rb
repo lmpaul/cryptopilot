@@ -22,13 +22,13 @@ u.save
 
 puts "👨🏻‍💻 User created"
 
-r = Ressource.new(name: "Binance", description: "First exchange by volume in the world", nb_up_votes: 10, user_id: 1, category: "Exchange")
+r = Ressource.new(name: "Binance", description: "First exchange by volume in the world", category: "Exchange")
 r.save
 
-r = Ressource.new(name: "MetaMask", description: "Most famous wallet for the  Ethereum network", nb_up_votes: 5, user_id: 1, category: "Wallet")
+r = Ressource.new(name: "MetaMask", description: "Most famous wallet for the  Ethereum network", category: "Wallet")
 r.save
 
-r = Ressource.new(name: "Hasheur", description: "Vulgarisation Crypto", nb_up_votes: 7, user_id: 1, category: "Youtube")
+r = Ressource.new(name: "Hasheur", description: "Vulgarisation Crypto", category: "Youtube")
 r.save
 
 puts "📚 Resources created"
