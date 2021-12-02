@@ -1,5 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
+  width: 100%;
 }
 
 .navbar-bg {
@@ -17,6 +18,8 @@
 
 .nav-active {
   color: #EABF17;
+  border-bottom: solid 3px #EABF17;
+  padding-bottom: 5px;
   transition: 0.5s;
 }
 

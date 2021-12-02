@@ -18,6 +18,7 @@ body {
   color: white;
   background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
                     url("background.svg");
+  overflow-x: hidden;
 }
 
 a {
