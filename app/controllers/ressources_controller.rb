@@ -1,28 +1,25 @@
 class RessourcesController < ApplicationController
   def index
     @ressources = Ressource.where(user_id: current_user)
+    @vote = Vote.new
   end
 
   def exchanges
     @ressources = Ressource.where(category: "Exchange")
+    @ressources = @ressources.sort_by{ |ressource| -ressource.votes.length }
+    @vote = Vote.new
   end
 
   def wallets
     @ressources = Ressource.where(category: "Wallet")
+    @ressources = @ressources.sort_by{ |ressource| -ressource.votes.length }
+    @vote = Vote.new
   end
 
   def youtube
     @ressources = Ressource.where(category: "Youtube")
-  end
-
-  def edit
-    @ressource = Ressource.find(params[:id])
-  end
-
-  def update
-    @ressource = Ressource.find(params[:id])
-    @ressource.update(ressource_params)
-    redirect_to ressources_path
+    @ressources = @ressources.sort_by{ |ressource| -ressource.votes.length }
+    @vote = Vote.new
   end
 
   private

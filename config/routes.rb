@@ -11,8 +11,11 @@ Rails.application.routes.draw do
     get '/charts/pie', to: 'charts#pie'
     get '/charts/sparkline', to: 'charts#sparkline'
   end
-  resources :ressources, only: [:index, :edit, :update]
+  resources :ressources, only: [:index, :edit, :update]do
+    resources :votes
+  end
   get '/ressources/exchanges', to: 'ressources#exchanges', as: :exchanges
   get '/ressources/wallets', to: 'ressources#wallets', as: :wallets
   get '/ressources/youtube', to: 'ressources#youtube', as: :youtube
+
 end

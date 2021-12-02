@@ -109,12 +109,12 @@ ActiveRecord::Schema.define(version: 2021_12_02_091906) do
   end
 
   create_table "votes", force: :cascade do |t|
-    t.bigint "users_id", null: false
-    t.bigint "ressources_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "ressource_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["ressources_id"], name: "index_votes_on_ressources_id"
-    t.index ["users_id"], name: "index_votes_on_users_id"
+    t.index ["ressource_id"], name: "index_votes_on_ressource_id"
+    t.index ["user_id"], name: "index_votes_on_user_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
@@ -123,6 +123,6 @@ ActiveRecord::Schema.define(version: 2021_12_02_091906) do
   add_foreign_key "price_histories", "assets"
   add_foreign_key "transactions", "assets"
   add_foreign_key "transactions", "dashboards"
-  add_foreign_key "votes", "ressources", column: "ressources_id"
-  add_foreign_key "votes", "users", column: "users_id"
+  add_foreign_key "votes", "ressources"
+  add_foreign_key "votes", "users"
 end

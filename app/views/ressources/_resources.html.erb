@@ -6,6 +6,16 @@
       <div class="px-4">
         <h3><%= ressource.name %></h3>
         <p><%= ressource.description %></p>
+        <p> <%= Vote.where(ressource_id: ressource.id).length %></p>
+        <% if Vote.where("user_id = '#{current_user.id}' AND ressource_id = '#{ressource.id}'").length > 0 %>
+          <%= link_to 'unvote', ressource_vote_path(ressource, Vote.where("user_id = '#{current_user.id}' AND ressource_id = '#{ressource.id}'").first), method: :delete, class: "btn-dark" %>
+        <% else %>
+          <%= simple_form_for(@vote, as: :vote, method: :post, url: ressource_votes_path(ressource)) do |f| %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.hidden_field :ressource_id, value: ressource.id %>
+            <%= f.button :submit, "vote", class: 'btn-flat'%>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
