@@ -73,6 +73,10 @@
 
 .dropdown-menu{
   background: black;
+  a:active {
+    background-color: #EABF17;
+    color: black;
+  }
 }
 
 .dropdown-item{
