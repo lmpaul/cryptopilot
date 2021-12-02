@@ -112,7 +112,7 @@ r.save
 image += 1
 puts "🖼️ Image #{image} seeded"
 
-photo = URI.open("https://img2.freepng.fr/20181123/qfz/kisspng-swissborg-cryptocurrency-bitcoin-logo-ethereum-5bf7db4468b465.2925238615429701804289.jpg")
+photo = URI.open("https://cdn.worldvectorlogo.com/logos/swissborg.svg")
 r = Ressource.new(name: "Swissborg", description: "Invest in cryptos the smart way.", category: "Exchange", link: "https://swissborg.com/")
 r.photo.attach(io: photo, filename: 'image', content_type: 'image/jpg')
 r.save
@@ -208,8 +208,8 @@ for loop in (2..13)
   r.save unless Vote.where(user_id: loop, ressource_id: 2).length > 0
 end
 
-for loop in (2..9)
-  r = Vote.new(user_id: loop, ressource_id: 1)
+for loop in (2..7)
+  r = Vote.new(user_id: loop, ressource_id: 3)
   r.save unless Vote.where(user_id: loop, ressource_id: 3).length > 0
 end
 
