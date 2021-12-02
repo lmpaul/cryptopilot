@@ -17,5 +17,4 @@ Rails.application.routes.draw do
   get '/ressources/exchanges', to: 'ressources#exchanges', as: :exchanges
   get '/ressources/wallets', to: 'ressources#wallets', as: :wallets
   get '/ressources/youtube', to: 'ressources#youtube', as: :youtube
-
 end
