@@ -35,9 +35,13 @@ import { createPieChart } from "./piechart";
 
 const navbar_class = () => {
   const page = document.location.href
-  const root = "http://localhost:3000/"
-  const prod = "https://cryptopilot.herokuapp.com/"
-  if (page === root || page === prod ){
+  const root = ["http://localhost:3000/",
+  "https://cryptopilot.herokuapp.com/",
+  "https://cryptopilot.me/",
+  "https://www.cryptopilot.me/"]
+
+  if (root.includes(page) ){
+    console.log("c ok")
     const navbar = document.querySelector('.navbar')
     navbar.classList.remove('navbar-bg');
     loadDynamicBannerText();
