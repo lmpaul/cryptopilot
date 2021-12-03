@@ -33,7 +33,7 @@
       <div class="key-metrics-card">
         <h2 class="my-4"> <%= @dashboard.name %>'s key metrics</h2>
         <% if @total_pnl > 0 %>
-          <p> Gobal Pnl: <span style="color:green">+ $<%= @total_pnl.round(2) %></span></p>
+          <p> Gobal Pnl: <span style="color:#02C77A">+ $<%= @total_pnl.round(2) %></span></p>
         <% else %>
           <p> Gobal Pnl: <span style="color:red">$<%= @total_pnl.round(2) %></span></p>
         <% end %>
@@ -60,7 +60,7 @@
 
           <div style="width: 45%">
             <% if @assets[key][:pnl] > 0 %>
-              <p style="color:green"> + $<%= @assets[key][:pnl].round(2) %></p>
+              <p style="color:#02C77A"> + $<%= @assets[key][:pnl].round(2) %></p>
             <% else %>
               <p style="color:red"> $<%= @assets[key][:pnl].round(2) %></p>
             <% end %>
