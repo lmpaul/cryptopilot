@@ -9,7 +9,7 @@
   </div>
   <div class="py-3"></div>
   <h2 class=>Transactions made this day: </h2>
-  <% if @transactions != [] %>
+  <% if @user_transactions != [] %>
   <table class= "mt-4 table-tx">
     <thead>
       <tr>
@@ -21,7 +21,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @transactions.each do |transaction| %>
+      <% @user_transactions.each do |transaction| %>
         <tr class="card-transac mb-4">
           <td>
             <div class="cell-with-logo">
