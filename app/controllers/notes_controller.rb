@@ -25,6 +25,12 @@ class NotesController < ApplicationController
   def show
     @note = Note.find(params[:id])
     @transactions = Transaction.where(date: @note.date)
+    @user_transactions = []
+    @transactions.each do |transaction|
+      if transaction.dashboard.user_id == current_user.id
+        @user_transactions << transaction
+      end
+    end
   end
 
   def destroy
