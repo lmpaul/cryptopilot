@@ -37,8 +37,8 @@ const navbar_class = () => {
   const page = document.location.href
   const root = ["http://localhost:3000/",
   "https://cryptopilot.herokuapp.com/",
-  "https://cryptopilot.me/",
-  "https://www.cryptopilot.me/"]
+  "http://cryptopilot.me/",
+  "http://www.cryptopilot.me/"]
 
   if (root.includes(page) ){
     console.log("c ok")
