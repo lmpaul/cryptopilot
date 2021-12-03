@@ -33,9 +33,9 @@
       <div class="key-metrics-card">
         <h2 class="my-4"> <%= @dashboard.name %>'s key metrics</h2>
         <% if @total_pnl > 0 %>
-          <p> Gobal Pnl: <span style="color:#02C77A">+ $<%= @total_pnl.round(2) %></span></p>
+          <p> Profit and Loss: <span style="color:#02C77A">+<%= @total_pnl.round(2) %> $</span></p>
         <% else %>
-          <p> Gobal Pnl: <span style="color:red">$<%= @total_pnl.round(2) %></span></p>
+          <p> Profit and Loss: <span style="color:red"><%= @total_pnl.round(2) %> $</span></p>
         <% end %>
         <p>Number of assets: <%= @assets.keys.length %></p>
         <p>Total value: $<%= @dashboard.total_value(@assets).round(2) %></p>
@@ -60,9 +60,9 @@
 
           <div style="width: 45%">
             <% if @assets[key][:pnl] > 0 %>
-              <p style="color:#02C77A"> + $<%= @assets[key][:pnl].round(2) %></p>
+              <p> Profit and Loss: <span style="color:#02C77A">+<%= @assets[key][:pnl].round(2) %> $</span></p>
             <% else %>
-              <p style="color:red"> $<%= @assets[key][:pnl].round(2) %></p>
+              <p> Profit and Loss: <span style="color:red"><%= @assets[key][:pnl].round(2) %> $</span></p>
             <% end %>
             <p>Value: $<%= (@assets[key][:quantity] * @assets[key][:market_price]).round(2) %></p>
             <p>Number of coins: <%= @assets[key][:quantity] %> </p>
